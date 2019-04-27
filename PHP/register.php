@@ -17,7 +17,7 @@
     <!-- <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
 
     <!-- Main CSS-->
-    <link href="http://localhost:80/Project/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
