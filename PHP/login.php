@@ -13,7 +13,7 @@ session_start();
 <head>
     <title>Login V1</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="../images/login/icons/favicon.ico"/>
     <!--===============================================================================================-->
@@ -189,23 +189,17 @@ if(isset($_POST['login_btn']))
 </div>
 
 
+<script src="../css/Login/vendor/jquery/jquery-3.2.1.min.js"></script>-->
 
-
-===============================================================================================
-<script src="../css/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
-===============================================================================================
-<script src="../css/Login/vendor/bootstrap/js/popper.js"></script>
+<script src="../css/Login/vendor/bootstrap/js/popper.js"></script>-->
 <script src="../css/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
-===============================================================================================
 <script src="../css/Login/vendor/select2/select2.min.js"></script>
-===============================================================================================
 <script src="../css/Login/vendor/tilt/tilt.jquery.min.js"></script>
 <script >
-    $('.js-tilt').tilt({
-        scale: 1.1
-    })
+   $('.js-tilt').tilt({
+      scale: 1.1
+ })
 </script>
-===============================================================================================
 <script src="js/main.js"></script>
 
 </body>
