@@ -54,6 +54,8 @@ if(isset($_POST['login_btn']))
             if($numrows==1)
             {
                 $row = mysqli_fetch_assoc($query);
+                $dbname = $row['Name'];
+                echo "$dbname";
                 $dbuser = $row['username'];
                 $dbpass = $row['password'];
                 $dbusertype = $row['usertype'];
@@ -64,21 +66,25 @@ if(isset($_POST['login_btn']))
                     {
                         header("location:./ParticipantPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="FacultyConvener")
                     {
                         header("location:FacultyConvenerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="Reviewer")
                     {
                         header("location:ReviewerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="StudentConvener")
                     {
                         header("location:StudentConvenerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else
                     {
@@ -175,23 +181,23 @@ if(isset($_POST['login_btn']))
 
 
 
-<!---->
-<!--===============================================================================================-->
-<!--<script src="../css/Login/vendor/jquery/jquery-3.2.1.min.js"></script>-->
-<!--===============================================================================================-->
-<!--<script src="../css/Login/vendor/bootstrap/js/popper.js"></script>-->
-<!--<script src="../css/Login/vendor/bootstrap/js/bootstrap.min.js"></script>-->
-<!--===============================================================================================-->
-<!--<script src="../css/Login/vendor/select2/select2.min.js"></script>-->
-<!--===============================================================================================-->
-<!--<script src="../css/Login/vendor/tilt/tilt.jquery.min.js"></script>-->
-<!--<script >-->
-<!--    $('.js-tilt').tilt({-->
-<!--        scale: 1.1-->
-<!--    })-->
-<!--</script>-->
-<!--===============================================================================================-->
-<!--<script src="js/main.js"></script>-->
+
+===============================================================================================
+<script src="../css/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+===============================================================================================
+<script src="../css/Login/vendor/bootstrap/js/popper.js"></script>
+<script src="../css/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+===============================================================================================
+<script src="../css/Login/vendor/select2/select2.min.js"></script>
+===============================================================================================
+<script src="../css/Login/vendor/tilt/tilt.jquery.min.js"></script>
+<script >
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+===============================================================================================
+<script src="js/main.js"></script>
 
 </body>
 </html>
