@@ -16,7 +16,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Dashboard</title>
+    <title>Add notice</title>
 
     <!-- Custom fonts for this template-->
     <link href="../css/Participant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,7 +28,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../css/AddNotice/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="../css/AddNotice/css/util.css">
     <link rel="stylesheet" type="text/css" href="../css/AddNotice/css/main.css">
-
 
     <!-- Page level plugin CSS-->
     <link href="../css/Participant/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
@@ -50,8 +49,7 @@ if(isset($_POST['notice-add-btn']))
 
     $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
     $sql1 = "INSERT INTO Notice (Noticeid,Title,Description,Date,SubmittedBy,Type) VALUES (DEFAULT ,'$title','$description','$date','$submitted_by','$type')";
-    if($conn->query($sql1)===TRUE)
-    {
+    if($conn->query($sql1)===TRUE) {
         $message = "Notice successfully added";
         echo "<script type='text/javascript'>alert('$message');</script>";
         header("location:./FacultyConvenerPage.php");
