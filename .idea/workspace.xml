@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ce0a48f-47d2-4a8d-83d8-3e9b648188ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PHP/Home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PHP/MySubmissionsParticipant.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/StudentConvener.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/StudentConvenerPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ParticipantPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ParticipantPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/StudentConvenerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/StudentConvenerPage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PHP/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/register.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +19,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="169" column="18" selection-end-line="186" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/Home.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/MySubmissionsParticipant.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PHP/ParticipantApplyEvent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="131" column="12" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2185">
-              <caret line="154" column="29" lean-forward="true" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
+            <state relative-caret-position="114">
+              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -34,15 +65,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PHP/register.php" />
+        <option value="$PROJECT_DIR$/PHP/StudentConvenerPage.php" />
         <option value="$PROJECT_DIR$/PHP/login.php" />
+        <option value="$PROJECT_DIR$/PHP/ParticipantPage.php" />
+        <option value="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
-    <option name="y" value="27" />
-    <option name="width" value="950" />
-    <option name="height" value="1053" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="y" value="25" />
+    <option name="width" value="960" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -79,6 +112,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../login" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.VCS" />
   </component>
   <component name="RunDashboard">
@@ -103,19 +137,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556355815928</updated>
-      <workItem from="1556355817582" duration="6315000" />
+      <workItem from="1556355817582" duration="10877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6315000" />
+    <option name="totallyTimeSpent" value="10877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <frame x="0" y="25" width="960" height="1055" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.058697972" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21444201" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -139,20 +173,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PHP/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/FacultyConvenerPage.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/StudentConvenerPage.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/ReviewerPage.php">
@@ -162,10 +183,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/StudentConvenerPage.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="154" column="29" lean-forward="true" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
+        <state relative-caret-position="114">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/MySubmissionsParticipant.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/Home.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="169" column="18" selection-end-line="186" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ParticipantApplyEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="131" column="12" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="12" />
         </state>
       </provider>
     </entry>

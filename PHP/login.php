@@ -12,7 +12,6 @@ session_start();
 <head>
     <title>Login V1</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="../images/login/icons/favicon.ico"/>
@@ -54,6 +53,8 @@ if(isset($_POST['login_btn']))
             if($numrows==1)
             {
                 $row = mysqli_fetch_assoc($query);
+                $dbname = $row['Name'];
+                echo "$dbname";
                 $dbuser = $row['username'];
                 $dbpass = $row['password'];
                 $dbusertype = $row['usertype'];
@@ -64,21 +65,25 @@ if(isset($_POST['login_btn']))
                     {
                         header("location:./ParticipantPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="FacultyConvener")
                     {
                         header("location:FacultyConvenerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="Reviewer")
                     {
                         header("location:ReviewerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else if($dbusertype=="StudentConvener")
                     {
                         header("location:StudentConvenerPage.php");
                         $_SESSION['username']=$user;
+                        $_SESSION['name']=$dbname;
                     }
                     else
                     {
