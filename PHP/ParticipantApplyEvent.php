@@ -33,6 +33,74 @@ session_start();
 </head>
 
 <body id="page-top">
+<?php
+
+if(isset($_POST['submit_btn']))
+{
+    $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+    if($_POST['title']=="")
+    {
+        echo '<script language="javascript">';
+        echo 'alert("please enter title of abstract")';
+        echo '</script>';
+    }
+    else if($_POST['description']=="")
+    {
+        echo '<script language="javascript">';
+        echo 'alert("please enter description")';
+        echo '</script>';
+    }
+    else if(empty($_FILES['file']['name']))
+    {
+        echo '<script language="javascript">';
+        echo 'alert("please select file")';
+        echo '</script>';
+    }
+    else
+    {
+        $user = $_SESSION['username'];
+        $email = $_SESSION['email'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $type = $_POST['option'];
+        $filename = $_FILES['file']['name'];
+        $file = file_get_contents($_FILES['file']['tmp_name']);
+
+        if($type=="Poster Presentation")
+        {
+
+            $selectquery =  mysqli_query($conn,"SELECT * FROM PosterPresentation");
+            $numrows = mysqli_num_rows($selectquery);
+            $numrows+=1;
+
+            $posterid = "Poster".(string)$numrows;
+            echo "$posterid";
+            $approved = 0;
+            $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
+
+
+        }
+        else if($type=="Oral Presentation")
+        {
+
+            $selectquery =  mysqli_query($conn,"SELECT * FROM OralPresentation");
+            $numrows = mysqli_num_rows($selectquery);
+            $numrows+=1;
+
+            $posterid = "Oral".(string)$numrows;
+            echo "$posterid";
+            $approved = 0;
+            $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
+
+
+        }
+
+    }
+}
+
+?>
 
 <!--<nav class="navbar navbar-expand navbar-dark bg-dark static-top">-->
 
@@ -70,7 +138,7 @@ session_start();
 <!--        </li>-->
 <!--        <li class="nav-item dropdown no-arrow mx-1">-->
 <!--            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-envelope fa-fw"></i>-->
+<!--                <i classhttps://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/="fas fa-envelope fa-fw"></i>-->
 <!--                <span class="badge badge-danger">7</span>-->
 <!--            </a>-->
 <!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">-->
@@ -128,7 +196,45 @@ session_start();
     <div id="content-wrapper">
 
         <div class="container-fluid">
-            
+            <form action="./ParticipantApplyEvent.php" method="post" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Abstract Title" name="title">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Description</label>
+                    <textarea  style="height:200px;padding-top: 0px" type="text" class="form-control input-lg" id="Description" placeholder="This Abstract is based on ...." name="description">
+                    </textarea>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Event</label>
+                        <select id="inputState" class="form-control" name="option">
+                            <option selected>Poster Presentation</option>
+                            <option>Oral Presentation</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4" style="vertical-align: middle">
+<!--                        <label for="customFile">Upload File</label>-->
+                        Upload file
+                        <input type="file" name="file" />
+<!--                        <input type="file" class="custom-file-input" id="customFile" name="file">-->
+<!--                        <label class="custom-file-label" for="customFile">Choose file</label>-->
+                    </div>
+
+
+
+                </div>
+                <div class="form-group">
+
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit_btn">Submit</button>
+            </form>
         </div>
 
     </div>
@@ -161,24 +267,6 @@ session_start();
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-
-<!-- Core plugin JavaScript-->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-
-<!-- Page level plugin JavaScript-->
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!--<script src="vendor/datatables/jquery.dataTables.js"></script>-->
-<!--<script src="vendor/datatables/dataTables.bootstrap4.js"></script>-->
-
-<!-- Custom scripts for all pages-->
-<!--<script src="js/sb-admin.min.js"></script>-->
-
-<!-- Demo scripts for this page-->
-<!--<script src="js/demo/datatables-demo.js"></script>-->
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
 
 </body>
 

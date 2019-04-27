@@ -56,6 +56,7 @@ if(isset($_POST['login_btn']))
                 $row = mysqli_fetch_assoc($query);
                 $dbname = $row['Name'];
                 echo "$dbname";
+                $dbemail = $row['email'];
                 $dbuser = $row['username'];
                 $dbpass = $row['password'];
                 $dbusertype = $row['usertype'];
@@ -67,24 +68,32 @@ if(isset($_POST['login_btn']))
                         header("location:./ParticipantPage.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
+                        $_SESSION['email']=$dbemail;
+                        $_SESSION['usertype']=$dbusertype;
                     }
                     else if($dbusertype=="FacultyConvener")
                     {
                         header("location:FacultyConvenerPage.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
+                        $_SESSION['email']=$dbemail;
+                        $_SESSION['usertype']=$dbusertype;
                     }
                     else if($dbusertype=="Reviewer")
                     {
                         header("location:ReviewerPage.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
+                        $_SESSION['email']=$dbemail;
+                        $_SESSION['usertype']=$dbusertype;
                     }
                     else if($dbusertype=="StudentConvener")
                     {
                         header("location:StudentConvenerPage.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
+                        $_SESSION['email']=$dbemail;
+                        $_SESSION['usertype']=$dbusertype;
                     }
                     else
                     {
