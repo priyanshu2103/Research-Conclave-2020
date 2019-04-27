@@ -40,6 +40,28 @@ session_start();
 
 <body id="page-top">
 
+
+<?php
+
+if(isset($_POST['notice-add-btn']))
+{
+    $title = $_POST['title'];
+    $type = $_POST['type'];
+    $description = $_POST['description'];
+    $date = date(d-m-Y);
+    $submitted_by = $_SESSION['usertype'];
+
+    $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+    $sql1 = "INSERT INTO Notice (Noticeid,Title,Description,Date,SubmittedBy,Type) VALUES (DEFAULT ,'$title','$description','$date','$submitted_by','$type')";
+    if($conn->query($sql1)===TRUE)
+    {
+        header("location:./FacultyConvenerPage.php");
+    }
+    mysqli_close($conn);
+}
+
+?>
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -85,14 +107,14 @@ session_start();
 
                         <div class="wrap-input100 validate-input" data-validate="Name is required">
                             <span class="label-input100">Title</span>
-                            <input class="input100" type="text" name="name" placeholder="Enter notice title here">
+                            <input class="input100" type="text" name="title" placeholder="Enter notice title here" required>
                             <span class="focus-input100"></span>
                         </div>
 
                         <div class="wrap-input100 input100-select">
                             <span class="label-input100">Event Type</span>
                             <div>
-                                <select class="selection-2" name="service">
+                                <select class="selection-2" name="type">
                                     <option>Poster Presentation</option>
                                     <option>Oral Presentation</option>
                                 </select>
@@ -102,14 +124,14 @@ session_start();
 
                         <div class="wrap-input100 validate-input" data-validate = "Message is required">
                             <span class="label-input100">Description</span>
-                            <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+                            <textarea class="input100" name="description" placeholder="Event Description here..." required></textarea>
                             <span class="focus-input100"></span>
                         </div>
 
                         <div class="container-contact100-form-btn">
                             <div class="wrap-contact100-form-btn">
                                 <div class="contact100-form-bgbtn"></div>
-                                <button class="contact100-form-btn">
+                                <button class="contact100-form-btn" name="notice-add-btn">
 							<span>
 								Submit
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -161,24 +183,6 @@ session_start();
 <script src="../css/AddNotice/js/main.js"></script>
 
 
-<!-- Bootstrap core JavaScript-->
-<!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!---->
-<!-- Core plugin JavaScript-->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-<!---->
-<!-- Page level plugin JavaScript-->
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!--<script src="vendor/datatables/jquery.dataTables.js"></script>-->
-<!--<script src="vendor/datatables/dataTables.bootstrap4.js"></script>-->
-<!---->
-<!-- Custom scripts for all pages-->
-<!--<script src="js/sb-admin.min.js"></script>-->
-<!---->
-<!-- Demo scripts for this page-->
-<!--<script src="js/demo/datatables-demo.js"></script>-->
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
 
 </body>
 
