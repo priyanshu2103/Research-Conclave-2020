@@ -16,7 +16,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Dashboard</title>
+    <title>Dashboard-Faculty</title>
 
     <!-- Custom fonts for this template-->
     <link href="../css/Participant/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@ session_start();
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
+            <a class="nav-link" href="./FacultyConvenerPage.php ">
                 <span>Faculty Convener</span>
             </a>
         </li>

@@ -81,7 +81,7 @@ if(isset($_POST['register-btn']))
                     <h2 class="title">Event Registration Form</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" action="./register.php">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
