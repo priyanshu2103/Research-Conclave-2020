@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1350498e-49b2-4c49-97d8-7d75cbe486bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyConvenerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyConvenerPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewNotice.php" beforeDir="false" afterPath="$PROJECT_DIR$/NewNotice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParticipantApplyEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/ParticipantApplyEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParticipantPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/ParticipantPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentConvenerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/StudentConvenerPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-    </list>
+    <list default="true" id="1350498e-49b2-4c49-97d8-7d75cbe486bd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StudentConvenerPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="240">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -151,7 +143,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -177,16 +169,15 @@
       <updated>1556364907943</updated>
       <workItem from="1556364910492" duration="14236000" />
       <workItem from="1556384922087" duration="754000" />
-      <workItem from="1556385690782" duration="16000" />
+      <workItem from="1556385690782" duration="140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15006000" />
+    <option name="totallyTimeSpent" value="15130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="25" width="1861" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19063361" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -223,13 +214,6 @@
     <entry file="file://$PROJECT_DIR$/ReviewerPage.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/FacultyConvenerPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Home.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -264,10 +248,17 @@
     <entry file="file://$PROJECT_DIR$/MySubmissionsParticipant.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudentConvenerPage.php">
+    <entry file="file://$PROJECT_DIR$/FacultyConvenerPage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudentConvenerPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
