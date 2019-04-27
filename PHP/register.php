@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE );
+error_reporting(E_ERROR | E_PARSE);
+//session based login system
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,18 +15,58 @@
 
     <title>Register</title>
 
-    <!-- <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"> -->
-    <!-- <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
-    <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
-    <!-- Vendor CSS-->
-    <!-- <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all"> -->
-    <!-- <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
-
     <!-- Main CSS-->
-    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link href="../css/Register/main.css" rel="stylesheet" type="text/css">
 </head>
+
+<?php
+
+if(isset($_POST['register-btn']))
+{
+    $firstName = $_POST['first_name'];
+    $secondName = $_POST['last_name'];
+    $username = $_POST['Username'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $confirmPass = $_POST['confirm-password'];
+
+    $name = $firstName." ".$secondName;
+    if($password === $confirmPass)
+    {
+        $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+        $query = mysqli_query($conn,"SELECT * FROM Users WHERE username ='$username' ");
+        $numrows = mysqli_num_rows($query);
+
+        if($numrows==1)
+        {
+            echo "Username already exists";
+            mysqli_close($conn);
+        }
+        else
+        {
+            $sql1 = "INSERT INTO Participants (Name,username,password,address,email,Phone) VALUES ('$name','$username','$password','$address','$email','$phone')";
+            $sql2 = "INSERT INTO Users (userID,username,password,usertype,email) VALUES (DEFAULT ,'$username','$password','Participant','$email')";
+            if($conn->query($sql1)===TRUE&&$conn->query($sql2)===TRUE)
+            {
+                header("location:./login.php");
+            }
+            mysqli_close(conn);
+
+        }
+    }
+    else
+    {
+        $message = "Passwords did not match";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+
+}
+
+?>
 
 <body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
@@ -35,7 +83,7 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
+                                            <input class="input--style-5" type="text" name="first_name" required>
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
@@ -52,7 +100,7 @@
                             <div class="name">Username</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="Username">
+                                    <input class="input--style-5" type="text" name="Username" required>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +108,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +116,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="phone">
+                                    <input class="input--style-5" type="text" name="phone" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('This is a required field and Phone number should be 10 digits long')"required>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +124,7 @@
                             <div class="name">Address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="address">
+                                    <input class="input--style-5" type="text" name="address" required>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +132,7 @@
                             <div class="name">Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="password" name="address">
+                                    <input class="input--style-5" type="password" name="password" minlength="8" required>
                                 </div>
                             </div>
                         </div>
@@ -92,12 +140,12 @@
                             <div class="name">Confirm Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="password" name="address">
+                                    <input class="input--style-5" type="password" name="confirm-password" required>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit" name="register-btn">Register</button>
                         </div>
                     </form>
                 </div>
