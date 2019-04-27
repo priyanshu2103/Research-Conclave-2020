@@ -37,7 +37,7 @@ session_start();
 
 if(isset($_POST['submit_btn']))
 {
-    $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+    $conn = new PDO("mysql:host=127.0.0.1;dbname=Research-Conclave","root","");
     if($_POST['title']=="")
     {
         echo '<script language="javascript">';
@@ -66,33 +66,64 @@ if(isset($_POST['submit_btn']))
         $filename = $_FILES['file']['name'];
         $file = file_get_contents($_FILES['file']['tmp_name']);
 
+
         if($type=="Poster Presentation")
         {
 
-            $selectquery =  mysqli_query($conn,"SELECT * FROM PosterPresentation");
+            $selectquery =  mysqli_query($conn,"SELECT * FROM `PosterPresentation`");
             $numrows = mysqli_num_rows($selectquery);
             $numrows+=1;
-
             $posterid = "Poster".(string)$numrows;
-            echo "$posterid";
-            $approved = 0;
-            $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+            // check if user already exists
+            $userexistsquery = mysqli_query($conn,"SELECT * FROM `PosterPresentation` WHERE Username='$user';");
+            $numrows_user = mysqli_num_rows($userexistsquery);
+            echo "$numrows_user";
+            if($numrows_user>0)
+            {
+                echo '<script language="javascript">';
+                echo 'alert("you have already submitted")';
+                echo '</script>';
+            }
+            else
+            {
+//                echo "$file";
+//                echo "$posterid";
+                $approved = 0;
+                $insertquery = $conn->prepare("INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
                                         VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
+                $insertquery->execute();
+
+            }
 
 
         }
         else if($type=="Oral Presentation")
         {
 
-            $selectquery =  mysqli_query($conn,"SELECT * FROM OralPresentation");
+            $selectquery =  mysqli_query($conn,"SELECT * FROM `OralPresentation`");
+
             $numrows = mysqli_num_rows($selectquery);
             $numrows+=1;
+            $oralid = "Oral".(string)$numrows;
+//            check if user has already submitted oral presentation
+            $userexistsquery = mysqli_query($conn,"SELECT * FROM `OralPresentation` WHERE Username='$user'");
+            $numrows_user = mysqli_num_rows($userexistsquery);
+            echo "$numrows_user";
+            if($numrows_user>0)
+            {
+                echo '<script language="javascript">';
+                echo 'alert("you have already submitted")';
+                echo '</script>';
+            }
+            else
+            {
+//                echo "$posterid";
+                $approved = 0;
+                $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
+            }
 
-            $posterid = "Oral".(string)$numrows;
-            echo "$posterid";
-            $approved = 0;
-            $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
-                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
+
 
 
         }
