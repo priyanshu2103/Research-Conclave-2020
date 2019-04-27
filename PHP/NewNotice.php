@@ -38,9 +38,6 @@ session_start();
 
 </head>
 
-<body id="page-top">
-
-
 <?php
 
 if(isset($_POST['notice-add-btn']))
@@ -48,50 +45,58 @@ if(isset($_POST['notice-add-btn']))
     $title = $_POST['title'];
     $type = $_POST['type'];
     $description = $_POST['description'];
-    $date = date(d-m-Y);
+    $date = date("d-m-y");
     $submitted_by = $_SESSION['usertype'];
 
     $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
     $sql1 = "INSERT INTO Notice (Noticeid,Title,Description,Date,SubmittedBy,Type) VALUES (DEFAULT ,'$title','$description','$date','$submitted_by','$type')";
     if($conn->query($sql1)===TRUE)
     {
+        $message = "Notice successfully added";
+        echo "<script type='text/javascript'>alert('$message');</script>";
         header("location:./FacultyConvenerPage.php");
+//        <script type="text/javascript">
+//        alert("Notice successfully added");
+//        location="./FacultyConvenerPage.php";
+//        </script>
     }
     mysqli_close($conn);
 }
 
 ?>
 
+<body id="page-top">
+
 <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
-                <span>Faculty Convener</span>
+            <a class="nav-link" href="./FacultyConvenerPage.php">
+                <span>Back</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link " href="./ParticipantApplyEvent.php" >
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Add notice</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./MySubmissionsParticipant.php">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Approve reviewers</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Reports</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Logout</span></a>
-        </li>
+<!--        <li class="nav-item dropdown">-->
+<!--            <a class="nav-link " href="./ParticipantApplyEvent.php" >-->
+<!--                <i class="fas fa-fw fa-folder"></i>-->
+<!--                <span>Add notice</span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./MySubmissionsParticipant.php">-->
+<!--                <i class="fas fa-fw fa-chart-area"></i>-->
+<!--                <span>Approve reviewers</span></a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Reports</span></a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Logout</span></a>-->
+<!--        </li>-->
     </ul>
 
     <div id="content-wrapper">
@@ -100,7 +105,7 @@ if(isset($_POST['notice-add-btn']))
 
             <div class="container-contact100">
                 <div class="wrap-contact100">
-                    <form class="contact100-form validate-form">
+                    <form class="contact100-form validate-form" method="post" action="./NewNotice.php">
 				<span class="contact100-form-title">
 					Add Notice!
 				</span>
@@ -114,7 +119,7 @@ if(isset($_POST['notice-add-btn']))
                         <div class="wrap-input100 input100-select">
                             <span class="label-input100">Event Type</span>
                             <div>
-                                <select class="selection-2" name="type">
+                                <select class="selection-2" name="type" datatype="text">
                                     <option>Poster Presentation</option>
                                     <option>Oral Presentation</option>
                                 </select>
@@ -131,7 +136,7 @@ if(isset($_POST['notice-add-btn']))
                         <div class="container-contact100-form-btn">
                             <div class="wrap-contact100-form-btn">
                                 <div class="contact100-form-bgbtn"></div>
-                                <button class="contact100-form-btn" name="notice-add-btn">
+                                <button class="contact100-form-btn" type="submit" name="notice-add-btn">
 							<span>
 								Submit
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
