@@ -25,6 +25,7 @@ session_start();
 
 if(isset($_POST['register-btn']))
 {
+    $flag=0;
     $firstName = $_POST['first_name'];
     $secondName = $_POST['last_name'];
     $username = $_POST['Username'];
@@ -33,6 +34,7 @@ if(isset($_POST['register-btn']))
     $address = $_POST['address'];
     $password = $_POST['password'];
     $confirmPass = $_POST['confirm-password'];
+
 
     $name = $firstName." ".$secondName;
     if($password === $confirmPass)
@@ -43,7 +45,8 @@ if(isset($_POST['register-btn']))
 
         if($numrows==1)
         {
-            echo "Username already exists";
+//            echo "Username already exists";
+            $flag=1;
             mysqli_close($conn);
         }
         else
@@ -57,13 +60,13 @@ if(isset($_POST['register-btn']))
                     header("location:./login.php");
             }
             mysqli_close($conn);
-
         }
     }
     else
     {
-        $message = "Passwords did not match";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+//        $message = "Passwords did not match";
+//        echo "<script type='text/javascript'>alert('$message');</script>";
+        $flag=2;
     }
 
 }
@@ -145,6 +148,21 @@ if(isset($_POST['register-btn']))
                                     <input class="input--style-5" type="password" name="confirm-password" required>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="value" >
+                                <?php
+                                    if($flag==1)
+                                        echo '<span style="color:#FF0000;text-align:center;">*Username already exists</span>';
+                                    if($flag==2)
+                                        echo '<span style="color:#FF0000;text-align:center;">*Passwords did not match!</span>';
+                                ?>
+                            </div>
+<!--                            <div class="value">-->
+<!--                                <div class="input-group">-->
+<!--                                    <input class="input--style-5" type="password" name="confirm-password" required>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                         <div>
                             <button class="btn btn--radius-2 btn--red" type="submit" name="register-btn">Register</button>
