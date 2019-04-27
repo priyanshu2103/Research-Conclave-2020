@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE );
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);E_PARSE
 //session based login system
 session_start();
 
@@ -48,13 +48,15 @@ if(isset($_POST['register-btn']))
         }
         else
         {
+            $password = md5($password);
             $sql1 = "INSERT INTO Participants (Name,username,password,address,email,Phone) VALUES ('$name','$username','$password','$address','$email','$phone')";
-            $sql2 = "INSERT INTO Users (userID,username,password,usertype,email) VALUES (DEFAULT ,'$username','$password','Participant','$email')";
-            if($conn->query($sql1)===TRUE&&$conn->query($sql2)===TRUE)
+            $sql2 = "INSERT INTO Users (userid,username,password,usertype,email,Name) VALUES (DEFAULT ,'$username','$password','Participant','$email','$name')";
+            if($conn->query($sql1)===TRUE)
             {
-                header("location:./login.php");
+                if($conn->query($sql2)===TRUE)
+                    header("location:./login.php");
             }
-            mysqli_close(conn);
+            mysqli_close($conn);
 
         }
     }
