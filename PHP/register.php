@@ -168,6 +168,10 @@ if(isset($_POST['register-btn']))
                             <button class="btn btn--radius-2 btn--red" type="submit" name="register-btn">Register</button>
                         </div>
                     </form>
+
+                </div>
+                <div>
+                    <a href="./login.php" ><button class="btn btn--radius-2 btn--red" type="submit" name="register-btn">Go back to login</button></a>
                 </div>
             </div>
         </div>
