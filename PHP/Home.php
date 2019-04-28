@@ -57,11 +57,11 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="index.html"><h1><span class="pe-7s-gleam bounce-in"></span>Research Conclave</h1></a>
+            <a class="navbar-brand" href=""><h1><span"></span>Research Conclave</h1></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Notices</a></li>
+                <li><a href="">Notices</a></li>
                 <li><a href="./login.php">Login</a></li>
                 <li><a href="./register.php">Register</a></li>
                 <li><a href="#here">About Us</a></li>

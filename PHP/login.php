@@ -41,6 +41,7 @@ session_start();
 if(isset($_POST['login_btn']))
 //if ($_POST['login_btn'])
 {
+    // Login mein error message echo ho raha hai, ganda lag raha hai
     $flag=0;
     $user = $_POST['username'];
     $password = $_POST['pass'];
