@@ -37,19 +37,21 @@ session_start();
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="./ParticipantPage.php">
-                <span>Student Convener</span>
+                <span><?php
+                    echo $_SESSION['name'];?></span>
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link " href="./NewNotice.php" >
+            <a class="nav-link " href="./NewNoticeStudentConvener.php" >
                 <i class="fas fa-fw fa-folder"></i>
                 <span>Add notice</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./MySubmissionsParticipant.php">
+            <a class="nav-link" href="./AssignReviewers.php">
+
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Approve reviewers</span></a>
+                <span>Assign reviewers</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="./Home.php">
