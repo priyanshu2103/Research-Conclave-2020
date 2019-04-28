@@ -124,7 +124,8 @@ if (isset($_POST['oraldisapprove']))
 
             <?php
             $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE Approved='0'");
+//            TODO apply and reviewer1 and reviewer2 is not null condition
+            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE (Approved=0 )");
 
             $posteridarray = array();
             $posterindex=0;

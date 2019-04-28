@@ -48,6 +48,7 @@ if(isset($_POST['login_btn']))
     {
         if($password)
         {
+            echo md5($password);
             $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
             $query = mysqli_query($conn,"SELECT * FROM Users WHERE username ='$user' ");
             $numrows = mysqli_num_rows($query);
@@ -61,7 +62,7 @@ if(isset($_POST['login_btn']))
                 $dbpass = $row['password'];
                 $dbusertype = $row['usertype'];
 //                echo "$dbpass";
-                if(($password) == $dbpass)
+                if(md5($password) == $dbpass)
                 {
                     if($dbusertype=="Participant")
                     {

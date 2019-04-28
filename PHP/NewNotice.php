@@ -44,7 +44,7 @@ if(isset($_POST['notice-add-btn']))
     $title = $_POST['title'];
     $type = $_POST['type'];
     $description = $_POST['description'];
-    $date = date("d-m-y");
+    $date = date("Y-m-d");
     $submitted_by = $_SESSION['usertype'];
 
     $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");

@@ -37,7 +37,13 @@ session_start();
 
 if(isset($_POST['submit_btn']))
 {
-    $conn = new PDO("mysql:host=127.0.0.1;dbname=Research-Conclave","root","");
+    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+    if($conn->connect_error)
+    {
+        die("Connection failed: " . $conn->connect_error);
+        echo "failed";
+
+    }
     if($_POST['title']=="")
     {
         echo '<script language="javascript">';
@@ -66,7 +72,7 @@ if(isset($_POST['submit_btn']))
         $filename = $_FILES['file']['name'];
         $file = file_get_contents($_FILES['file']['tmp_name']);
 
-
+//        echo "$file";
         if($type=="Poster Presentation")
         {
 
@@ -77,21 +83,33 @@ if(isset($_POST['submit_btn']))
             // check if user already exists
             $userexistsquery = mysqli_query($conn,"SELECT * FROM `PosterPresentation` WHERE Username='$user';");
             $numrows_user = mysqli_num_rows($userexistsquery);
-            echo "$numrows_user";
+//            echo "$numrows_user";
+            $datequery = mysqli_query($conn,"SELECT * FROM Event WHERE Type='Poster Presentation'");
+            $todaydate = date("Y-m-d");
+//            echo "Todays date: $todaydate";
+            $row = mysqli_fetch_assoc($datequery);
+            $eventstartdate = $row['StartDate'];
+            $eventenddate = $row['EndDate'];
+//            echo "$eventenddate";
             if($numrows_user>0)
             {
-                echo '<script language="javascript">';
-                echo 'alert("you have already submitted")';
-                echo '</script>';
+                echo '<script language="javascript">window.alert("you have already submitted")</script>';
+            }
+            else if ($todaydate<$eventstartdate)
+            {
+                echo "Event applications have not yet started";
+            }
+            else if($todaydate>$eventenddate)
+            {
+                echo "Registration closed";
             }
             else
+
             {
-//                echo "$file";
-//                echo "$posterid";
                 $approved = 0;
-                $insertquery = $conn->prepare("INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
                                         VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
-                $insertquery->execute();
+//                $insertquery->execute();
 
             }
 
@@ -108,12 +126,25 @@ if(isset($_POST['submit_btn']))
 //            check if user has already submitted oral presentation
             $userexistsquery = mysqli_query($conn,"SELECT * FROM `OralPresentation` WHERE Username='$user'");
             $numrows_user = mysqli_num_rows($userexistsquery);
-            echo "$numrows_user";
+//            echo "$numrows_user";
+            $datequery = mysqli_query($conn,"SELECT * FROM Event WHERE Type='Oral Presentation'");
+            $todaydate = date("Y-m-d");
+//            echo "Todays date: $todaydate";
+            $row = mysqli_fetch_assoc($datequery);
+            $eventstartdate = $row['StartDate'];
+            $eventenddate = $row['EndDate'];
+//            echo "$eventenddate";
             if($numrows_user>0)
             {
-                echo '<script language="javascript">';
-                echo 'alert("you have already submitted")';
-                echo '</script>';
+                echo '<script language="javascript">window.alert("you have already submitted")</script>';
+            }
+            else if ($todaydate<$eventstartdate)
+            {
+                echo "Event applications have not yet started";
+            }
+            else if($todaydate>$eventenddate)
+            {
+                echo "Applications closed";
             }
             else
             {
@@ -253,7 +284,7 @@ if(isset($_POST['submit_btn']))
                     <div class="form-group col-md-4" style="vertical-align: middle">
 <!--                        <label for="customFile">Upload File</label>-->
                         Upload file
-                        <input type="file" name="file" />
+                        <input type="file" name="file" id="file" />
 <!--                        <input type="file" class="custom-file-input" id="customFile" name="file">-->
 <!--                        <label class="custom-file-label" for="customFile">Choose file</label>-->
                     </div>
