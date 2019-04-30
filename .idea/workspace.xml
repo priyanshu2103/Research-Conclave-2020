@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ce0a48f-47d2-4a8d-83d8-3e9b648188ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PHP/ViewEventHome.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PHP/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/AddReviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/AddReviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/AssignReviewers.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/AssignReviewers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ChangeUsernamePasswordReviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ChangeUsernamePasswordReviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/EvaluatePoster_OralReviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/EvaluatePoster_OralReviewer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PHP/EventEditFaculty.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/EventEditFaculty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/FacultyConvenerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/FacultyConvenerPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/MySubmissionsParticipant.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/MySubmissionsParticipant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/NewNotice.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/NewNotice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ParticipantPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ParticipantPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ReviewerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ReviewerPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ShowNoticeFaculty.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ShowNoticeFaculty.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ShowNoticeReviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ShowNoticeReviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ShowNoticeStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ShowNoticeStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/StudentConvenerPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/StudentConvenerPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/ViewEventHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/ViewEventHome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,33 +46,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PHP/StudentConvenerPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="61" column="61" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
+            <state relative-caret-position="251">
+              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/AddReviewer.php">
+        <entry file="file://$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="786">
-              <caret line="157" column="10" lean-forward="true" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/Home.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+            <state relative-caret-position="281">
+              <caret line="100" column="40" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -63,8 +67,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/ShowNotice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="424">
+              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="166" column="6" lean-forward="true" selection-start-line="166" selection-start-column="6" selection-end-line="166" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeFaculty.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="110" column="61" selection-start-line="110" selection-start-column="61" selection-end-line="110" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeReviewer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="110" column="61" selection-start-line="110" selection-start-column="61" selection-end-line="110" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeStudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="109" column="61" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -74,69 +114,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
               <caret line="42" column="88" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="42" selection-end-column="88" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/login.php">
+        <entry file="file://$PROJECT_DIR$/PHP/ReviewerPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="57" column="50" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="50" />
+            <state relative-caret-position="349">
+              <caret line="162" column="61" selection-start-line="162" selection-start-column="61" selection-end-line="162" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/FacultyConvenerPage.php">
+        <entry file="file://$PROJECT_DIR$/PHP/ParticipantApplyEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2449">
-              <caret line="196" column="13" lean-forward="true" selection-start-line="196" selection-start-column="13" selection-end-line="196" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/EventEditFaculty.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="190" column="41" lean-forward="true" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PHP/ViewEventHome.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="93" lean-forward="true" selection-start-line="43" selection-start-column="93" selection-end-line="43" selection-end-column="93" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="43" column="133" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="133" />
+            <state relative-caret-position="281">
+              <caret line="223" column="107" selection-start-line="223" selection-start-column="101" selection-end-line="223" selection-end-column="107" />
             </state>
           </provider>
         </entry>
@@ -153,6 +148,8 @@
       <find>echod</find>
       <find>date</find>
       <find>echo</find>
+      <find>logou</find>
+      <find>logout</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,24 +158,29 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PHP/ParticipantPage.php" />
-        <option value="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" />
-        <option value="$PROJECT_DIR$/PHP/MySubmissionsParticipant.php" />
-        <option value="$PROJECT_DIR$/PHP/NewNotice.php" />
-        <option value="$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php" />
-        <option value="$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php" />
-        <option value="$PROJECT_DIR$/PHP/AssignReviewers.php" />
-        <option value="$PROJECT_DIR$/PHP/login.php" />
         <option value="$PROJECT_DIR$/PHP/ShowNotice.php" />
-        <option value="$PROJECT_DIR$/PHP/ShowNoticeFaculty.php" />
-        <option value="$PROJECT_DIR$/PHP/ShowNoticeStudent.php" />
-        <option value="$PROJECT_DIR$/PHP/StudentConvenerPage.php" />
         <option value="$PROJECT_DIR$/PHP/register.php" />
-        <option value="$PROJECT_DIR$/PHP/AddReviewer.php" />
-        <option value="$PROJECT_DIR$/PHP/FacultyConvenerPage.php" />
-        <option value="$PROJECT_DIR$/PHP/EventEditFaculty.php" />
         <option value="$PROJECT_DIR$/PHP/Home.php" />
         <option value="$PROJECT_DIR$/PHP/ViewEventHome.php" />
+        <option value="$PROJECT_DIR$/PHP/logout.php" />
+        <option value="$PROJECT_DIR$/PHP/FacultyConvenerPage.php" />
+        <option value="$PROJECT_DIR$/PHP/AddReviewer.php" />
+        <option value="$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php" />
+        <option value="$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php" />
+        <option value="$PROJECT_DIR$/PHP/login.php" />
+        <option value="$PROJECT_DIR$/PHP/AssignReviewers.php" />
+        <option value="$PROJECT_DIR$/PHP/EvaluatePoster_OralReviewer.php" />
+        <option value="$PROJECT_DIR$/PHP/ChangeUsernamePasswordReviewer.php" />
+        <option value="$PROJECT_DIR$/PHP/EventEditFaculty.php" />
+        <option value="$PROJECT_DIR$/PHP/MySubmissionsParticipant.php" />
+        <option value="$PROJECT_DIR$/PHP/NewNotice.php" />
+        <option value="$PROJECT_DIR$/PHP/ParticipantApplyEvent.php" />
+        <option value="$PROJECT_DIR$/PHP/ParticipantPage.php" />
+        <option value="$PROJECT_DIR$/PHP/ReviewerPage.php" />
+        <option value="$PROJECT_DIR$/PHP/ShowNoticeFaculty.php" />
+        <option value="$PROJECT_DIR$/PHP/ShowNoticeReviewer.php" />
+        <option value="$PROJECT_DIR$/PHP/ShowNoticeStudent.php" />
+        <option value="$PROJECT_DIR$/PHP/StudentConvenerPage.php" />
       </list>
     </option>
   </component>
@@ -261,12 +263,12 @@
       <workItem from="1556472412719" duration="751000" />
       <workItem from="1556477671789" duration="3497000" />
       <workItem from="1556613144097" duration="1286000" />
-      <workItem from="1556615930384" duration="11934000" />
+      <workItem from="1556615930384" duration="14502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63121000" />
+    <option name="totallyTimeSpent" value="65689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="25" width="1861" height="1055" extended-state="6" />
@@ -297,132 +299,133 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PHP/ReviewerPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/AddNotice/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-585" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/MySubmissionsParticipant.php">
+    <entry file="file://$PROJECT_DIR$/PHP/ViewEventHome.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="202" column="60" selection-start-line="202" selection-start-column="58" selection-end-line="202" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="72" column="63" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/AssignReviewers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="155" column="91" selection-start-line="155" selection-start-column="91" selection-end-line="155" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/NewNotice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="9" selection-start-line="70" selection-start-column="4" selection-end-line="97" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeFaculty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-end-line="142" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="174" column="65" selection-end-line="186" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ParticipantApplyEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeStudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/StudentConvenerPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="61" column="61" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/FacultyConvenerPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2449">
-          <caret line="196" column="13" lean-forward="true" selection-start-line="196" selection-start-column="13" selection-end-line="196" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="43" column="133" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/EventEditFaculty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="190" column="41" lean-forward="true" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
+        <state relative-caret-position="660">
+          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ShowNotice.php">
+    <entry file="file://$PROJECT_DIR$/PHP/logout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+        <state relative-caret-position="45">
+          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/AddReviewer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="157" column="10" lean-forward="true" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ApproveReviewersFaculty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="133" column="46" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/AssignReviewers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="122" column="45" selection-start-line="122" selection-start-column="40" selection-end-line="122" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ChangeUsernamePasswordReviewer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="180" column="69" selection-start-line="180" selection-start-column="63" selection-end-line="180" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/EvaluatePoster_OralReviewer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="280" column="68" selection-start-line="280" selection-start-column="63" selection-end-line="280" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/EventEditFaculty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="146" column="46" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/FacultyConvenerPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="135" column="32" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/MySubmissionsParticipant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="889">
+          <caret line="212" column="69" selection-start-line="212" selection-start-column="63" selection-end-line="212" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/NewNotice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/NewNoticeStudentConvener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="100" column="40" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ParticipantApplyEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="223" column="107" selection-start-line="223" selection-start-column="101" selection-end-line="223" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ParticipantPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="166" column="6" lean-forward="true" selection-start-line="166" selection-start-column="6" selection-end-line="166" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -430,30 +433,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="42" column="88" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="42" selection-end-column="88" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/login.php">
+    <entry file="file://$PROJECT_DIR$/PHP/ReviewerPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="57" column="50" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="50" />
+        <state relative-caret-position="349">
+          <caret line="162" column="61" selection-start-line="162" selection-start-column="61" selection-end-line="162" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/ViewEventHome.php">
+    <entry file="file://$PROJECT_DIR$/PHP/ShowNotice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="93" lean-forward="true" selection-start-line="43" selection-start-column="93" selection-end-line="43" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="424">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeFaculty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="110" column="61" selection-start-line="110" selection-start-column="61" selection-end-line="110" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeReviewer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="110" column="61" selection-start-line="110" selection-start-column="61" selection-end-line="110" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/ShowNoticeStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="109" column="61" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/StudentConvenerPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
         </state>
       </provider>
     </entry>

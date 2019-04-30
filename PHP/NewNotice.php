@@ -5,6 +5,11 @@ error_reporting(E_ERROR | E_PARSE);
 session_start();
 ?>
 
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,27 +79,8 @@ if(isset($_POST['notice-add-btn']))
                 <span>Back</span>
             </a>
         </li>
-<!--        <li class="nav-item dropdown">-->
-<!--            <a class="nav-link " href="./ParticipantApplyEvent.php" >-->
-<!--                <i class="fas fa-fw fa-folder"></i>-->
-<!--                <span>Add notice</span>-->
-<!--            </a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="./MySubmissionsParticipant.php">-->
-<!--                <i class="fas fa-fw fa-chart-area"></i>-->
-<!--                <span>Approve reviewers</span></a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="./Home.php">-->
-<!--                <i class="fas fa-fw fa-table"></i>-->
-<!--                <span>Reports</span></a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="./Home.php">-->
-<!--                <i class="fas fa-fw fa-table"></i>-->
-<!--                <span>Logout</span></a>-->
-<!--        </li>-->
+
+
     </ul>
 
     <div id="content-wrapper">

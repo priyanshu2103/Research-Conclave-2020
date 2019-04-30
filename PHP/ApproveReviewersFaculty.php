@@ -3,8 +3,11 @@ error_reporting(E_ALL ^ E_NOTICE );
 error_reporting(E_ERROR | E_PARSE);
 //session based login system
 session_start();
+?>
 
-
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +131,7 @@ if (isset($_POST['oraldisapprove']))
                 <span>Edit event date</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
+            <a class="nav-link" href="./logout.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>
