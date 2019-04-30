@@ -69,8 +69,8 @@ if(isset($_POST['submit_btn']))
         $title = $_POST['title'];
         $description = $_POST['description'];
         $type = $_POST['option'];
-        $filename = $_FILES['file']['name'];
-        $file = file_get_contents($_FILES['file']['tmp_name']);
+//        $filename = $_FILES['file']['name'];
+//        $file = file_get_contents($_FILES['file']['tmp_name']);
 
 //        echo "$file";
         if($type=="Poster Presentation")
@@ -106,10 +106,40 @@ if(isset($_POST['submit_btn']))
             else
 
             {
-                $approved = 0;
-                $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                // file upload from here
+
+//                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png","pdf"=>"/");
+                $filename = $_FILES['file']['name'];
+                $filetype = $_FILES['file']['type'];
+                $filesize = $_FILES['file']['size'];
+                $file = $_FILES['file']['tmp_name'];
+
+                // verify extension
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                $max_size = 50*1024*1024;       // max size in 50MB
+                if($ext!="pdf" && $ext!="jpg" && $ext!="jpeg" && $ext!="png" && $ext!="txt" && $ext!="docx"){die("Error: Please select a valid file format.");}
+                if($filesize > $max_size) {die("Error: File size is larger than the allowed limit.");}
+                if(is_dir($posterid))
+                {
+                    echo "Directory exists";
+                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
+                    echo "File added";
+                    $approved = 0;
+                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
                                         VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
-//                $insertquery->execute();
+                }
+                else
+                {
+                    echo "Directory does not exist";
+                    mkdir($posterid);
+                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
+                    echo "File uploaded";
+                    $approved = 0;
+                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
+                }
+
+
 
             }
 
@@ -148,10 +178,38 @@ if(isset($_POST['submit_btn']))
             }
             else
             {
-//                echo "$posterid";
-                $approved = 0;
-                $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                // file upload from here
+
+//                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png","pdf"=>"/");
+                $filename = $_FILES['file']['name'];
+                $filetype = $_FILES['file']['type'];
+                $filesize = $_FILES['file']['size'];
+                $file = $_FILES['file']['tmp_name'];
+
+                // verify extension
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                $max_size = 50*1024*1024;       // max size in 50MB
+                if($ext!="pdf" && $ext!="jpg" && $ext!="jpeg" && $ext!="png" && $ext!="txt" && $ext!="docx"){die("Error: Please select a valid file format.");}
+                if($filesize > $max_size) {die("Error: File size is larger than the allowed limit.");}
+                if(is_dir($oralid))
+                {
+                    echo "Directory exists";
+                    move_uploaded_file($_FILES['file']['tmp_name'],$oralid."/".$filename);
+                    echo "File added";
+                    $approved = 0;
+                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
                                         VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
+                }
+                else
+                {
+                    echo "Directory does not exist";
+                    mkdir($oralid);
+                    move_uploaded_file($_FILES['file']['tmp_name'],$oralid."/".$filename);
+                    echo "File uploaded";
+                    $approved = 0;
+                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
+                }
             }
 
 
@@ -164,66 +222,6 @@ if(isset($_POST['submit_btn']))
 
 ?>
 
-<!--<nav class="navbar navbar-expand navbar-dark bg-dark static-top">-->
-
-<!--    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>-->
-
-<!--    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--    </button>-->
-
-<!-- Navbar Search -->
-<!--    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">-->
-<!--        <div class="input-group">-->
-<!--            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
-<!--            <div class="input-group-append">-->
-<!--                <button class="btn btn-primary" type="button">-->
-<!--                    <i class="fas fa-search"></i>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form>-->
-
-<!-- Navbar -->
-<!--    <ul class="navbar-nav ml-auto ml-md-0">-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-bell fa-fw"></i>-->
-<!--                <span class="badge badge-danger">9+</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i classhttps://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/="fas fa-envelope fa-fw"></i>-->
-<!--                <span class="badge badge-danger">7</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-user-circle fa-fw"></i>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">-->
-<!--                <a class="dropdown-item" href="#">Settings</a>-->
-<!--                <a class="dropdown-item" href="#">Activity Log</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--    </ul>-->
-
-</nav>
 
 <div id="wrapper">
 
