@@ -127,7 +127,7 @@ if (isset($_POST['oraldisapprove']))
                 <span>Edit event date</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php" <?php session_destroy();?>>
+            <a class="nav-link" href="./Home.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>
@@ -137,7 +137,68 @@ if (isset($_POST['oraldisapprove']))
 
         <div class="container-fluid">
 
+            <?php
+            $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE Approved='0'");
 
+            $posteridarray = array();
+            $posterindex=0;
+            while($row=mysqli_fetch_assoc($posterquery))
+            {
+
+                $posteridarray[$posterindex]=$row['Posterid'];
+
+//                echo $posteridarray[$posterindex];
+                echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                echo "Poster Presentation";
+                echo '</h5><div class="card-body"><h5 class="card-title">';
+                echo $row['AbstractTitle'];
+                echo '</h5>';
+                echo '<p class="card-text">';
+                echo $row['AbstractDescription'];
+                echo '</div><h5 class="card-header"> Reviewer1:';
+                echo $row['Reviewer1'];
+                echo '<br>Reviewer2:';
+                echo $row['Reviewer2'];
+                echo '</h5>';
+                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
+                        <button class="btn btn-danger" type="submit" name="posterdisapprove" value="';echo $posteridarray[$posterindex]; echo '">Disapprove</button>
+                        <button class="btn btn-primary" type="submit"  name="posterapprove" value="';echo $posteridarray[$posterindex]; echo '">Approve</button></form></div>';
+//                echo '</p><a href="#" class="btn btn-primary">File</a>
+//                        </div>
+//                    </div>';
+                $posterindex++;
+            }
+            $oralquery = mysqli_query($conn,"SELECT * FROM OralPresentation WHERE Approved='0'");
+            $oralidarray=array();
+            $oralindex=0;
+            while($row=mysqli_fetch_assoc($oralquery))
+            {
+                $oralidarray[$oralindex]=$row['Oralid'];
+
+                echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                echo "Oral Presentation";
+                echo '</h5><div class="card-body"><h5 class="card-title">';
+                echo $row['AbstractTitle'];
+                echo '</h5>';
+                echo '<p class="card-text">';
+                echo $row['AbstractDescription'];
+                echo '</div><h5 class="card-header"> Reviewer1:';
+                echo $row['Reviewer1'];
+                echo '<br>Reviewer2:';
+                echo $row['Reviewer2'];
+                echo '</h5>';
+                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
+                        <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>
+                        <button class="btn btn-primary" name="oralapprove" value="';echo $oralidarray[$oralindex];echo '">Approve</button></form></div>';
+                $oralindex++;
+            }
+
+
+
+            ?>
 
         </div>
 
