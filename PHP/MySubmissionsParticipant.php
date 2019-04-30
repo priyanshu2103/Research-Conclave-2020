@@ -40,69 +40,71 @@ if(!isset($_SESSION['logged_in']))
 
 <?php
 
+if(isset($_POST['posterfile']))
+{
+    $posterid = $_POST['posterfile'];
+    $path = $posterid;
+    $d=dir($path);
+    echo $posterid;
+    while (false !== ($entry = $d->read()))
+    {
+        $filename = $entry;
+    }
+    echo $filename;
+    echo $filename;
+    chmod($posterid.'/'.$filename,777);
+    if(is_readable($filename))
+    {
+        echo "readable";
+    }
+    else
+    {
+        echo "not readable";
+    }
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="'.basename($filename).'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filename));
+    readfile($filename);
 
+}
+if(isset($_POST['oralfile']))
+{
+//    echo "dff";
+    $oralid = $_POST['oralfile'];
+    echo $oralid;
+    $path = $oralid;
+    $d=dir($path);
+
+    while (false !== ($entry = $d->read()))
+    {
+        $filename = $entry;
+    }
+    echo $filename;
+    chmod($oralid.'/'.$filename,777);
+    if(is_readable($filename))
+    {
+        echo "readable";
+    }
+    else
+    {
+        echo "not readable";
+    }
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="'.$filename.'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filename));
+    readfile($filename);
+    exit;
+}
 
 ?>
-<!--<nav class="navbar navbar-expand navbar-dark bg-dark static-top">-->
-
-<!--    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>-->
-
-<!--    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--    </button>-->
-
-<!-- Navbar Search -->
-<!--    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">-->
-<!--        <div class="input-group">-->
-<!--            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
-<!--            <div class="input-group-append">-->
-<!--                <button class="btn btn-primary" type="button">-->
-<!--                    <i class="fas fa-search"></i>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form>-->
-
-<!-- Navbar -->
-<!--    <ul class="navbar-nav ml-auto ml-md-0">-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-bell fa-fw"></i>-->
-<!--                <span class="badge badge-danger">9+</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-envelope fa-fw"></i>-->
-<!--                <span class="badge badge-danger">7</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-user-circle fa-fw"></i>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">-->
-<!--                <a class="dropdown-item" href="#">Settings</a>-->
-<!--                <a class="dropdown-item" href="#">Activity Log</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--    </ul>-->
-
-</nav>
 
 <div id="wrapper">
 
@@ -158,7 +160,7 @@ if(!isset($_SESSION['logged_in']))
                     echo '</h5>';
                             echo '<p class="card-text">';
                             echo $row['AbstractDescription'];
-                            echo '</p><a href="#" class="btn btn-primary">File</a>
+                            echo '</p><form method="post"><button type="submit" name="posterfile" value=';echo $row['Posterid'];echo ' class="btn btn-primary">File</button></form>
                         </div>
                     </div>';
             }
@@ -174,8 +176,7 @@ if(!isset($_SESSION['logged_in']))
                 echo '</h5>';
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
-                echo '</p>
-                            <a href="#" class="btn btn-primary">File</a>
+                echo '</p><form method="post"><button name="oralfile" type="submit" value=';echo $row['Oralid'];echo ' class="btn btn-primary">File</button></form>
                         </div>
                     </div>';
             }
@@ -216,24 +217,6 @@ if(!isset($_SESSION['logged_in']))
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-
-<!-- Core plugin JavaScript-->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-
-<!-- Page level plugin JavaScript-->
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!--<script src="vendor/datatables/jquery.dataTables.js"></script>-->
-<!--<script src="vendor/datatables/dataTables.bootstrap4.js"></script>-->
-
-<!-- Custom scripts for all pages-->
-<!--<script src="js/sb-admin.min.js"></script>-->
-
-<!-- Demo scripts for this page-->
-<!--<script src="js/demo/datatables-demo.js"></script>-->
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
 
 </body>
 
