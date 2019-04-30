@@ -28,61 +28,73 @@ session_start();
 
     <!-- Custom styles for this template-->
     <link href="../css/Participant/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <body id="page-top">
+
 <?php
-//
-//if (isset($_POST['posterapprove']))
-//{
-//    echo $_POST['posterapprove'];
-//    $index =number_format($_POST['posterapprove']);
-//    $comment = $_POST['comment'];
-//    $posterid = $_POST['posterapprove'];
-//    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-//    $posterapprovequery = mysqli_query($conn,"UPDATE PosterPresentation SET Approved=1, Remark='$comment' WHERE Posterid='$posterid'");
-//    echo "reviewer approved for ".$posterid;
-//
-//
-//}
-//if (isset($_POST['posterdisapprove']))
-//{
-//    echo $_POST['posterdisapprove'];
-//    $index =number_format($_POST['posterdisapprove']);
-//    $comment = $_POST['comment'];
-//    $posterid = $_POST['posterdisapprove'];
-//    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-//    $posterdisapprovequery = mysqli_query($conn,"UPDATE PosterPresentation SET Approved=0, Remark='$comment' WHERE Posterid='$posterid'");
-//    echo "reviewer disapproved for ".$posterid;
-//
-//
-//}
-//if (isset($_POST['oralapprove']))
-//{
-//    echo $_POST['oralapprove'];
-//    $index =number_format($_POST['oralapprove']);
-//    $comment = $_POST['comment'];
-//    $oralid = $_POST['oralapprove'];
-//    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-//    $oralapprovequery = mysqli_query($conn,"UPDATE OralPresentation SET Approved=1, Remark='$comment' WHERE Oralid='$oralid'");
-//    echo "reviewer approved for ".$oralid;
-//
-//
-//}
-//if (isset($_POST['oraldisapprove']))
-//{
-//    echo $_POST['oraldisapprove'];
-//    $index =number_format($_POST['oraldisapprove']);
-//    $comment = $_POST['comment'];
-//    $oralid = $_POST['oraldisapprove'];
-//    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-//    $oraldisapprovequery = mysqli_query($conn,"UPDATE OralPresentation SET Approved=0, Remark='$comment' WHERE Oralid='$oralid'");
-//    echo "reviewer disapproved for ".$oralid;
-//
-//
-//}
-//?>
+    $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+    $query1 = mysqli_query($conn,"SELECT * FROM Event WHERE Type ='Poster Presentation'");
+    $row1 = mysqli_fetch_assoc($query1);
+
+    $start_date_poster = $row1['StartDate'];
+    $end_date_poster = $row1['EndDate'];
+    $newStartPoster = $start_date_poster;
+    $newEndPoster = $end_date_poster;
+
+    $query2 = mysqli_query($conn,"SELECT * FROM Event WHERE Type ='Oral Presentation' ");
+    $row2 = mysqli_fetch_assoc($query2);
+
+    $start_date_oral = $row2['StartDate'];
+    $end_date_oral = $row2['EndDate'];
+    ?>
+<?php
+
+
+if(isset($_POST['btn-change-date-poster']))
+{
+    $flag=2;
+    $newStartPoster = $_POST['posterStart'];
+    $newEndPoster = $_POST['posterEnd'];
+
+    if($newStartPoster===''||$newEndPoster==='')
+    {
+//        $flag=1;
+    }
+    else
+    {
+
+        $sql1 = "UPDATE Event SET StartDate='$newStartPoster', EndDate='$newEndPoster' WHERE Type='Poster Presentation'";
+        $conn->query($sql1);
+    }
+}
+
+if(isset($_POST['btn-change-date-oral']))
+{
+    $flag=2;
+    $newStartOral = $_POST['oralStart'];
+    $newEndOral = $_POST['oralEnd'];
+
+    if($newStartOral===''||$newEndOral==='')
+    {
+//        $flag=1;
+    }
+    else
+    {
+        $sql2 = "UPDATE Event SET StartDate='$newStartOral', EndDate='$newEndOral' WHERE Type='Oral Presentation'";
+        $conn->query($sql2);
+        $start_date_oral = $newStartOral;
+        $end_date_oral = $newEndOral;
+    }
+}
+
+
+    ?>
+
+
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -122,7 +134,7 @@ session_start();
                 <span>Add Reviewer</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./AddReviewer.php">
+            <a class="nav-link" href="./EventEditFaculty.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Edit event date</span></a>
         </li>
@@ -135,74 +147,60 @@ session_start();
 
     <div id="content-wrapper">
 
-
-
         <div class="container-fluid">
 
+            <h2>Poster Presentation</h2>
+            <form>
+
+                <div class="form-group" style="width: 30%">
+                    <label for="exampleInputPassword1">Start Date</label>
+                    <input type="date" name="posterStart" class="form-control" id="exampleInputPassword1" value="<?php echo $newStartPoster?>">
+                </div>
+                <div class="form-group" style="width: 30%">
+                    <label for="exampleInputPassword1">End Date</label>
+                    <input type="date" name = "posterEnd" class="form-control" id="exampleInputPassword1" value="<?php echo $newEndPoster?>">
+                </div>
+                <button type="submit" class="btn btn-primary" name="btn-change-date-poster">Change Dates</button>
+            </form>
+
+            <hr>
+
+            <h2 style="margin-top: 20px">Oral Presentation</h2>
+            <form>
+
+                <div class="form-group" style="width: 30%">
+                    <label for="exampleInputPassword1">Start Date</label>
+                    <input type="date" name = "oralStart" class="form-control" id="exampleInputPassword1" value="<?php echo $start_date_oral ?>">
+                </div>
+                <div class="form-group" style="width: 30%">
+                    <label for="exampleInputPassword1">End Date</label>
+                    <input type="date" name = "oralEnd"  class="form-control" id="exampleInputPassword1" value="<?php echo $end_date_oral ?>">
+                </div>
+                <button type="submit" class="btn btn-primary" name="btn-change-date-oral">Change Dates</button>
+            </form>
+
+            <div>
+                <?php
+                if($flag==1)
+                    echo '<span style="color:#FF0000;text-align:center;">*All fields must be filled</span>';
 
 
-//            <?php
-//            $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
-//            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE Approved='0'");
-//
-//            $posteridarray = array();
-//            $posterindex=0;
-//            while($row=mysqli_fetch_assoc($posterquery))
-//            {
-//
-//                $posteridarray[$posterindex]=$row['Posterid'];
-//
-////                echo $posteridarray[$posterindex];
-//                echo '<div class="card mb-5">
-//                    <h5 class="card-header">';
-//                echo "Poster Presentation";
-//                echo '</h5><div class="card-body"><h5 class="card-title">';
-//                echo $row['AbstractTitle'];
-//                echo '</h5>';
-//                echo '<p class="card-text">';
-//                echo $row['AbstractDescription'];
-//                echo '</div><h5 class="card-header"> Reviewer1:';
-//                echo $row['Reviewer1'];
-//                echo '<br>Reviewer2:';
-//                echo $row['Reviewer2'];
-//                echo '</h5>';
-//                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
-//                        <button class="btn btn-danger" type="submit" name="posterdisapprove" value="';echo $posteridarray[$posterindex]; echo '">Disapprove</button>
-//                        <button class="btn btn-primary" type="submit"  name="posterapprove" value="';echo $posteridarray[$posterindex]; echo '">Approve</button></form></div>';
-////                echo '</p><a href="#" class="btn btn-primary">File</a>
-////                        </div>
-////                    </div>';
-//                $posterindex++;
-//            }
-//            $oralquery = mysqli_query($conn,"SELECT * FROM OralPresentation WHERE Approved='0'");
-//            $oralidarray=array();
-//            $oralindex=0;
-//            while($row=mysqli_fetch_assoc($oralquery))
-//            {
-//                $oralidarray[$oralindex]=$row['Oralid'];
-//
-//                echo '<div class="card mb-5">
-//                    <h5 class="card-header">';
-//                echo "Oral Presentation";
-//                echo '</h5><div class="card-body"><h5 class="card-title">';
-//                echo $row['AbstractTitle'];
-//                echo '</h5>';
-//                echo '<p class="card-text">';
-//                echo $row['AbstractDescription'];
-//                echo '</div><h5 class="card-header"> Reviewer1:';
-//                echo $row['Reviewer1'];
-//                echo '<br>Reviewer2:';
-//                echo $row['Reviewer2'];
-//                echo '</h5>';
-//                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
-//                        <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>
-//                        <button class="btn btn-primary" name="oralapprove" value="';echo $oralidarray[$oralindex];echo '">Approve</button></form></div>';
-//                $oralindex++;
-//            }
-//
-//
-//
-//            ?>
+                    echo $newStartPoster . "\n";
+                    echo $newEndPoster;
+//                    echo $newStartOral;
+//                    echo $newEndPoster;
+
+
+                ?>
+            </div>
+            <div>
+<!--                --><?php
+//                echo $newEndPoster;
+//                ?>
+            </div>
+
+
+
 
         </div>
 
