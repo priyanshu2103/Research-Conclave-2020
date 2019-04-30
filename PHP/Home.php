@@ -13,6 +13,7 @@
     <link href="../css/Home/animate.css" rel="stylesheet">
     <link href="../css/Home/style.css" rel="stylesheet">
     <script src="../js/Home/jquery.js"></script>
+
 <!--    <link rel="shortcut icon" href="images/ico/favicon.ico">-->
 <!--    <link rel="apple-touch-icon" sizes="144x144" href="images/ico/apple-touch-icon-144x144.png">-->
 <!--    <link rel="apple-touch-icon" sizes="114x114" href="images/ico/apple-touch-icon-114x114.png">-->

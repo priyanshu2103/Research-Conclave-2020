@@ -23,13 +23,14 @@
 <!-- Preloader Starts -->
 <div class="preloader">
     <div class="spinner"></div>
+
 </div>
 
 
 <!-- Notice area starts -->
 <section class="feature-area section-padding2" style="padding: 0px 0px 0px">
     <div class="jumbotron">
-        <h1>Notices</h1>
+        <h1 style="text-align: center">Notices</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -50,9 +51,10 @@
                 </div>";
             }
             ?>
-
     </div>
+
 </section>
+<a href="./Home.php"> <button type="button" class="btn btn-primary" style="margin-left: 20px">Back</button></a>
 <!-- notice Area End -->
 
 
