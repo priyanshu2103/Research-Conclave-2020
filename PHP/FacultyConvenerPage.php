@@ -112,6 +112,11 @@ if (isset($_POST['oraldisapprove']))
                 <span>Reports</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="./ShowNoticeFaculty.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Show Notices</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="./Home.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
