@@ -88,7 +88,7 @@ else if(isset($_POST['OralReviewer']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
+            <a class="nav-link" href="#">
                 <span><?php
                     echo $_SESSION['name'];?></span>
             </a>
@@ -153,7 +153,7 @@ else if(isset($_POST['OralReviewer']))
                         $poster_reviewer_id[$poster_reviewer_index]=$row['Username'];
                         $poster_reviewer_name[$poster_reviewer_index]=$row['Name'];
 
-                        $selectOption = $selectOption."<option value='".$row['Username']."'>".$row['Name']."</option>";
+                        $selectOption = $selectOption."<option value='".$row['Username']."'>".$row['Name'].",".$row['Department']."</option>";
                         $poster_reviewer_index++;
                     }
                     while ($row = mysqli_fetch_array($posterquery)) {
@@ -208,7 +208,7 @@ else if(isset($_POST['OralReviewer']))
                         $oral_reviewer_id[$oral_reviewer_index]=$row['Username'];
                         $poster_reviewer_name[$oral_reviewer_index]=$row['Name'];
                         $oral_reviewer_index++;
-                        $selectOption = $selectOption."<option value='".$row['Username']."'>".$row['Name']."</option>";
+                        $selectOption = $selectOption."<option value='".$row['Username']."'>".$row['Name'].",".$row['Department']."</option>";
                     }
 //                    $oral_index=0;
                     while ($row = mysqli_fetch_array($oralquery)) {

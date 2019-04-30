@@ -70,7 +70,7 @@ if(isset($_POST['notice-add-btn']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./StudentConvenerPage.php">
+            <a class="nav-link" href="./AssignReviewers.php">
                 <span>Back</span>
             </a>
         </li>

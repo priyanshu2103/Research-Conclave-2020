@@ -88,12 +88,13 @@ if (isset($_POST['oraldisapprove']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./FacultyConvenerPage.php ">
-                <span>
+<!--            <a class="nav-link" href="# ">-->
+<!--                <span>-->
                     <?php
                     echo $_SESSION['name'];
-                    ?></span>
-            </a>
+                    ?>
+<!--            </span>-->
+<!--            </a>-->
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link " href="./NewNotice.php" >

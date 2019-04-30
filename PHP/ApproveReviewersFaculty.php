@@ -88,11 +88,12 @@ if (isset($_POST['oraldisapprove']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./FacultyConvenerPage.php ">
+            <a class="nav-link" href="#">
                 <span>
                     <?php
                     echo $_SESSION['name'];
-                    ?></span>
+                    ?>
+            </span>
             </a>
         </li>
         <li class="nav-item dropdown">
@@ -135,6 +136,12 @@ if (isset($_POST['oraldisapprove']))
                 $posteridarray[$posterindex]=$row['Posterid'];
 
 //                echo $posteridarray[$posterindex];
+                $r1=$row['Reviewer1'];
+                $r2=$row['Reviewer2'];
+                $reviewerquery1 = mysqli_query($conn,"SELECT * FROM Reviewer WHERE Username='$r1'");
+                $reviewerquery2 = mysqli_query($conn,"SELECT * FROM Reviewer WHERE Username='$r2'");
+                $row_reviewer1=mysqli_fetch_assoc($reviewerquery1);
+                $row_reviewer2=mysqli_fetch_assoc($reviewerquery2);
                 echo '<div class="card mb-5">
                     <h5 class="card-header">';
                 echo "Poster Presentation";
@@ -143,10 +150,10 @@ if (isset($_POST['oraldisapprove']))
                 echo '</h5>';
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
-                echo '</div><h5 class="card-header"> Reviewer1:';
-                echo $row['Reviewer1'];
-                echo '<br>Reviewer2:';
-                echo $row['Reviewer2'];
+                echo '</div><h5 class="card-header"> Reviewers:<br>';
+                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
+                echo '<br>2.  ';
+                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
                 echo '</h5>';
                 echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
                         <button class="btn btn-danger" type="submit" name="posterdisapprove" value="';echo $posteridarray[$posterindex]; echo '">Disapprove</button>
@@ -163,6 +170,12 @@ if (isset($_POST['oraldisapprove']))
             {
                 $oralidarray[$oralindex]=$row['Oralid'];
 
+                $r1=$row['Reviewer1'];
+                $r2=$row['Reviewer2'];
+                $reviewerquery1 = mysqli_query($conn,"SELECT * FROM Reviewer WHERE Username='$r1'");
+                $reviewerquery2 = mysqli_query($conn,"SELECT * FROM Reviewer WHERE Username='$r2'");
+                $row_reviewer1=mysqli_fetch_assoc($reviewerquery1);
+                $row_reviewer2=mysqli_fetch_assoc($reviewerquery2);
                 echo '<div class="card mb-5">
                     <h5 class="card-header">';
                 echo "Oral Presentation";
@@ -171,10 +184,10 @@ if (isset($_POST['oraldisapprove']))
                 echo '</h5>';
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
-                echo '</div><h5 class="card-header"> Reviewer1:';
-                echo $row['Reviewer1'];
-                echo '<br>Reviewer2:';
-                echo $row['Reviewer2'];
+                echo '</div><h5 class="card-header"> Reviewers:<br>';
+                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
+                echo '<br>2.  ';
+                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
                 echo '</h5>';
                 echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
                         <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>

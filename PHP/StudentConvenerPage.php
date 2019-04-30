@@ -36,7 +36,7 @@ session_start();
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
+            <a class="nav-link" href="#">
                 <span><?php
                     echo $_SESSION['name'];?></span>
             </a>

@@ -108,21 +108,27 @@ session_start();
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link " href="./" >
+            <a class="nav-link " href="./EvaluatePoster_OralReviewer.php" >
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Apply</span>
+                <span>Evaluate</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./MySubmissionsParticipant.php">
+            <a class="nav-link" href="./ShowNoticeReviewer.php">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>My Submissions</span></a>
+                <span>Notices</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./ChangeUsernamePasswordReviewer.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Change Password</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="./Home.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>
+
     </ul>
 
     <div id="content-wrapper">

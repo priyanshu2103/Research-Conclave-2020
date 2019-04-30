@@ -75,7 +75,7 @@ if(isset($_POST['login_btn']))
                     }
                     else if($dbusertype=="FacultyConvener")
                     {
-                        header("location:FacultyConvenerPage.php");
+                        header("location:ApproveReviewersFaculty.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
@@ -83,7 +83,7 @@ if(isset($_POST['login_btn']))
                     }
                     else if($dbusertype=="Reviewer")
                     {
-                        header("location:ReviewerPage.php");
+                        header("location:EvaluatePoster_OralReviewer.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
@@ -91,7 +91,7 @@ if(isset($_POST['login_btn']))
                     }
                     else if($dbusertype=="StudentConvener")
                     {
-                        header("location:StudentConvenerPage.php");
+                        header("location:AssignReviewers.php");
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
