@@ -117,6 +117,11 @@ if (isset($_POST['oraldisapprove']))
                 <span>Show Notices</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="./AddReviewer.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Add Reviewer</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="./Home.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
