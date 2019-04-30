@@ -5,6 +5,11 @@ error_reporting(E_ERROR | E_PARSE);
 session_start();
 ?>
 
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,7 +115,12 @@ else if(isset($_POST['OralReviewer']))
                 <span>Reports</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
+            <a class="nav-link" href="./ShowNoticeStudent.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Show Notice</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./logout.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>

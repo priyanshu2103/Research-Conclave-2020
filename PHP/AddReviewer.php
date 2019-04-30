@@ -3,8 +3,11 @@ error_reporting(E_ALL ^ E_NOTICE );
 error_reporting(E_ERROR | E_PARSE);
 //session based login system
 session_start();
+?>
 
-
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
 ?>
 
 <!DOCTYPE html>

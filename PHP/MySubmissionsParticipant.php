@@ -6,7 +6,10 @@ error_reporting(E_ERROR | E_PARSE);
 session_start();
 ?>
 
-
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+?>
 
 
 <!DOCTYPE html>
@@ -127,7 +130,7 @@ if(isset($_POST['oralfile']))
                 <span>My Submissions</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
+            <a class="nav-link" href="./logout.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>
@@ -208,7 +211,7 @@ if(isset($_POST['oralfile']))
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="./logout.php">Logout</a>
             </div>
         </div>
     </div>

@@ -5,6 +5,11 @@ error_reporting(E_ERROR | E_PARSE);
 session_start();
 ?>
 
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

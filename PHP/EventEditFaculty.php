@@ -7,6 +7,11 @@ session_start();
 
 ?>
 
+<?php
+if(!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,7 +144,7 @@ if(isset($_POST['btn-change-date-oral']))
                 <span>Edit event date</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
+            <a class="nav-link" href="./logout.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
         </li>

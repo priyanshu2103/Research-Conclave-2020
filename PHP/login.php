@@ -4,7 +4,6 @@ error_reporting(E_ERROR | E_PARSE);
 //session based login system
 session_start();
 
-
 ?>
 
 
@@ -68,6 +67,7 @@ if(isset($_POST['login_btn']))
                     if($dbusertype=="Participant")
                     {
                         header("location:./ParticipantPage.php");
+                        $_SESSION['logged_in']=true;
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
@@ -76,6 +76,7 @@ if(isset($_POST['login_btn']))
                     else if($dbusertype=="FacultyConvener")
                     {
                         header("location:ApproveReviewersFaculty.php");
+                        $_SESSION['logged_in']=true;
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
@@ -84,6 +85,7 @@ if(isset($_POST['login_btn']))
                     else if($dbusertype=="Reviewer")
                     {
                         header("location:EvaluatePoster_OralReviewer.php");
+                        $_SESSION['logged_in']=true;
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
@@ -92,6 +94,7 @@ if(isset($_POST['login_btn']))
                     else if($dbusertype=="StudentConvener")
                     {
                         header("location:AssignReviewers.php");
+                        $_SESSION['logged_in']=true;
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;
                         $_SESSION['email']=$dbemail;
