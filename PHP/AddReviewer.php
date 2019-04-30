@@ -55,7 +55,7 @@ if(isset($_POST['btn-add-reviewer']))
         else
         {
             $password = md5($password);
-            $sql1 = "INSERT INTO Reviewers (id,Username,Name,Address,Type,Designation,Department,Institute,Email) VALUES (DEFAULT ,'$username','$name','$address','$type','Professor','$department','$institute','$email')";
+            $sql1 = "INSERT INTO Reviewer (id,Username,Name,Address,Type,Designation,Department,Institute,Email) VALUES (DEFAULT ,'$username','$name','$address','$type','Professor','$department','$institute','$email')";
             $sql2 = "INSERT INTO Users (userid,username,password,usertype,email,Name) VALUES (DEFAULT ,'$username','$password','Reviewer','$email','$name')";
             if($conn->query($sql1)===TRUE)
             {
