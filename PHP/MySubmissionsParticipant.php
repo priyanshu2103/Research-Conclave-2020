@@ -82,9 +82,11 @@ if(isset($_POST['oralfile']))
     while (false !== ($entry = $d->read()))
     {
         $filename = $entry;
+//        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+//        echo $ext;
     }
-    echo $filename;
-    chmod($oralid.'/'.$filename,777);
+//    echo $filename;
+    chmod($filename,777);
     if(is_readable($filename))
     {
         echo "readable";
@@ -100,7 +102,7 @@ if(isset($_POST['oralfile']))
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
     header('Content-Length: ' . filesize($filename));
-    readfile($filename);
+
     exit;
 }
 
