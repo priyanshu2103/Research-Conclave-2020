@@ -1,3 +1,12 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE );
+error_reporting(E_ERROR | E_PARSE);
+//session based login system
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,6 +84,8 @@ if(isset($_POST['btn-add-reviewer']))
 ?>
 
 <body>
+
+
     <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
             <div class="card card-2">

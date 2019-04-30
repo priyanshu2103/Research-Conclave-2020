@@ -113,6 +113,21 @@ if (isset($_POST['oraldisapprove']))
                 <span>Reports</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="./ShowNoticeFaculty.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Show Notices</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./AddReviewer.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Add Reviewer</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./EventEditFaculty.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Edit event date</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="./Home.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>

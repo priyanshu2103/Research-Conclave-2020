@@ -34,66 +34,61 @@ session_start();
 
 <body id="page-top">
 
-<!--<nav class="navbar navbar-expand navbar-dark bg-dark static-top">-->
+<?php
+$conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+if(isset($_POST['postermarksassign']))
+{
+    $posterid_and_marks = $_POST['postermarksassign'];
+//    echo $posterid_and_marks[strlen($posterid_and_marks)-1];
+    if($posterid_and_marks[strlen($posterid_and_marks)-1]==1)
+    {
+        if($_POST['marks']!=NULL)
+        {
+            $marks = $_POST['marks'];
+            $posterid = substr($posterid_and_marks,0,strlen($posterid_and_marks)-1);
+            echo $posterid;
+            $poster_1_marks_update = mysqli_query($conn,"UPDATE PosterPresentation SET Marks1=$marks WHERE Posterid='$posterid'");
+            echo "Marks updated successfully";
+        }
+      else  echo "Please enter marks";
+    }
+    else if($posterid_and_marks[strlen($posterid_and_marks)-1]==2)
+    {
+        if($_POST['marks']!=NULL)
+        {
 
-<!--    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>-->
+            $marks = $_POST['marks'];
+            echo $marks;
+            $posterid = substr($posterid_and_marks,0,strlen($posterid_and_marks)-1);
+            echo $posterid;
+            $poster_2_marks_update = mysqli_query($conn,"UPDATE PosterPresentation SET Marks2=$marks WHERE Posterid='$posterid'");
+            echo "Marks updated successfully";
+        }
+      else  echo "Please enter marks";
+    }
+}
 
-<!--    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--    </button>-->
-
-<!-- Navbar Search -->
-<!--    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">-->
-<!--        <div class="input-group">-->
-<!--            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
-<!--            <div class="input-group-append">-->
-<!--                <button class="btn btn-primary" type="button">-->
-<!--                    <i class="fas fa-search"></i>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form>-->
-
-<!-- Navbar -->
-<!--    <ul class="navbar-nav ml-auto ml-md-0">-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-bell fa-fw"></i>-->
-<!--                <span class="badge badge-danger">9+</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow mx-1">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-envelope fa-fw"></i>-->
-<!--                <span class="badge badge-danger">7</span>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">-->
-<!--                <a class="dropdown-item" href="#">Action</a>-->
-<!--                <a class="dropdown-item" href="#">Another action</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#">Something else here</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown no-arrow">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                <i class="fas fa-user-circle fa-fw"></i>-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">-->
-<!--                <a class="dropdown-item" href="#">Settings</a>-->
-<!--                <a class="dropdown-item" href="#">Activity Log</a>-->
-<!--                <div class="dropdown-divider"></div>-->
-<!--                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>-->
-<!--            </div>-->
-<!--        </li>-->
-<!--    </ul>-->
-
-</nav>
+if(isset($_POST['oralmarksassign']))
+{
+    $oralid_and_marks = $_POST['oralmarksassign'];
+    if($oralid_and_marks[strlen($oralid_and_marks)-1]==1)
+    {
+        $marks = $_POST['marks'];
+        $oralid = substr($oralid_and_marks,0,strlen($oralid_and_marks)-1);
+        echo $oralid;
+        $oral_1_marks_update = mysqli_query($conn,"UPDATE OralPresentation SET Marks1=$marks WHERE Oralid='$oralid'");
+        echo "Marks updated successfully";
+    }
+    else if($oralid_and_marks[strlen($oralid_and_marks)-1]==2)
+    {
+        $marks = $_POST['marks'];
+        $oralid = substr($oralid_and_marks,0,strlen($oralid_and_marks)-1);
+        echo $oralid;
+        $oral_2_marks_update = mysqli_query($conn,"UPDATE OralPresentation SET Marks2=$marks WHERE Oralid='$oralid'");
+        echo "Marks updated successfully";
+    }
+}
+?>
 
 <div id="wrapper">
 
@@ -135,6 +130,123 @@ session_start();
 
         <div class="container-fluid">
 
+            <?php
+            $flag=0;
+            $username = $_SESSION['username'];
+            $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE ((Reviewer1 = '$username' OR Reviewer2 = '$username') AND Approved=1 )");
+
+            $posteridarray = array();
+            $posterindex=0;
+            while($row=mysqli_fetch_assoc($posterquery))
+            {
+                $reviewer1 = $row['Reviewer1'];
+                $reviewer2 = $row['Reviewer2'];
+                if($username==$reviewer1){$flag=1;}
+                else $flag=2;
+                if($flag==1 && $row['Marks1']==NULL)
+                {
+                    $posteridarray[$posterindex]=$row['Posterid'];
+                    echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                    echo $row['AbstractTitle'];
+                    echo '</h5>';
+                    echo '</h5>';
+                    echo '<div class="card-body"><p class="card-text">';
+                    echo $row['AbstractDescription'];
+                    echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
+                        <button class="btn btn-primary" type="submit" name="postermarksassign" value="';echo $posteridarray[$posterindex].$flag; echo '">Assign Marks</button>
+                        </form></div>';
+//                echo '</p><a href="#" class="btn btn-primary">File</a>
+//                        </div>
+//                    </div>';
+                    $posterindex++;
+                    $flag=0;
+                }
+                else if($flag==2 && $row['Marks2']==NULL)
+                {
+                    $posteridarray[$posterindex]=$row['Posterid'];
+                    echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                    echo $row['AbstractTitle'];
+                    echo '</h5>';
+                    echo '</h5>';
+                    echo '<div class="card-body"><p class="card-text">';
+                    echo $row['AbstractDescription'];
+
+                    echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
+                        <button class="btn btn-primary" type="submit" name="postermarksassign" value="';echo $posteridarray[$posterindex].$flag; echo '">Assign Marks</button>
+                        </form></div>';
+                    $posterindex++; $flag=0;
+                }
+
+            }
+            $oralquery = mysqli_query($conn,"SELECT * FROM OralPresentation WHERE ((Reviewer1 = '$username' OR Reviewer2 = '$username') AND Approved=1 )");
+            $oralidarray=array();
+            $oralindex=0;
+            while($row=mysqli_fetch_assoc($oralquery))
+            {
+                $oralidarray[$oralindex]=$row['Oralid'];
+                $reviewer1 = $row['Reviewer1'];
+                $reviewer2 = $row['Reviewer2'];
+                if($username==$reviewer1){$flag=1;}
+                else $flag=2;
+                if($flag==1 && $row['Marks1']==NULL)
+                {
+                    echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                    echo $row['AbstractTitle'];
+                    echo '</h5>';
+                    echo '</h5>';
+                    echo '<div class="card-body"><p class="card-text">';
+                    echo $row['AbstractDescription'];
+                    echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks" max="10" min="0" minlength="1">
+                        <button class="btn btn-primary" type="submit" name="oralmarksassign" value="';echo $oralidarray[$oralindex].$flag; echo '">Assign Marks</button>
+                        </form></div>';
+//                echo '</p><a href="#" class="btn btn-primary">File</a>
+//                        </div>
+//                    </div>';
+                    $oralindex++; $flag=0;
+                }
+                if($flag==2 && $row['Marks2']==NULL)
+                {
+                    echo '<div class="card mb-5">
+                    <h5 class="card-header">';
+                    echo $row['AbstractTitle'];
+                    echo '</h5>';
+                    echo '</h5>';
+                    echo '<div class="card-body"><p class="card-text">';
+                    echo $row['AbstractDescription'];
+                    echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
+                        <button class="btn btn-primary" type="submit" name="oralmarksassign" value="';echo $oralidarray[$oralindex].$flag; echo '">Assign Marks</button>
+                        </form></div>';
+//                echo '</p><a href="#" class="btn btn-primary">File</a>
+//                        </div>
+//                    </div>';
+                    $oralindex++; $flag=0;
+                }
+//                echo '<div class="card mb-5">
+//                    <h5 class="card-header">';
+//                echo "Oral Presentation";
+//                echo '</h5><div class="card-body"><h5 class="card-title">';
+//                echo $row['AbstractTitle'];
+//                echo '</h5>';
+//                echo '<p class="card-text">';
+//                echo $row['AbstractDescription'];
+//                echo '</div><h5 class="card-header"> Reviewers:<br>';
+//                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
+//                echo '<br>2.  ';
+//                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
+//                echo '</h5>';
+//                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
+//                        <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>
+//                        <button class="btn btn-primary" name="oralapprove" value="';echo $oralidarray[$oralindex];echo '">Approve</button></form></div>';
+//                $oralindex++;
+            }
+
+
+
+            ?>
 
 
         </div>
