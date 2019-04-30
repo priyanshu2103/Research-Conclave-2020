@@ -63,6 +63,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="./ShowNotice.php">Notices</a></li>
+                <li><a href="./ViewEventHome.php">Events</a></li>
                 <li><a href="./login.php">Login</a></li>
                 <li><a href="./register.php">Register</a></li>
                 <li><a href="#here">About Us</a></li>
