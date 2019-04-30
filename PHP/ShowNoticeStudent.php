@@ -43,7 +43,7 @@ if(!isset($_SESSION['logged_in']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./FacultyConvenerPage.php">
+            <a class="nav-link" href="./StudentConvenerPage.php">
                 <span>Back</span>
             </a>
         </li>

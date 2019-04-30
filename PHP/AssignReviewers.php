@@ -115,7 +115,7 @@ else if(isset($_POST['OralReviewer']))
                 <span>Reports</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
+            <a class="nav-link" href="./ShowNoticeStudent.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Show Notice</span></a>
         </li>
