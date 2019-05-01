@@ -1,14 +1,4 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE );
-error_reporting(E_ERROR | E_PARSE);
-//session based login system
-session_start();
-?>
-
-<?php
-
-if (!isset($_SESSION['logged_in']))
-    header("Location: login.php");
 
 $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
 
@@ -70,15 +60,16 @@ if($flag==0)
 
     $width = $pdf->GetPageWidth();
     $pdf->SetFont('Arial','IB',20);
-    $pdf->Cell(5*$width/6,25,"Report of Participants",0,1,'C');
+    $pdf->Cell(4*$width/5,25,"Report of Participants",0,1,'C');
     $pdf->SetFont('Arial','B',14);
 
 
-    $pdf->cell($width/6,10,"Name",1,0,'C');
-    $pdf->cell($width/6,10,"Email",1,0,'C');
-    $pdf->cell($width/6,10,"Type",1,0,'C');
-    $pdf->cell($width/6,10,"Reviewer1",1,0,'C');
-    $pdf->cell($width/6,10,"Reviewer2",1,1,'C');
+    $pdf->cell($width/5,10,"Name",1,0,'C');
+    $pdf->cell($width/5,10,"Email",1,0,'C');
+    $pdf->cell($width/5,10,"Type",1,0,'C');
+    $pdf->cell($width/5,10,"Abstract Title",1,1,'C');
+//    $pdf->cell($width/6,10,"Reviewer1",1,0,'C');
+//    $pdf->cell($width/6,10,"Reviewer2",1,1,'C');
 //    $pdf->cell(20,10,"Marks 1",1,0,'C');
 //    $pdf->cell(20,10,"Marks 2",1,0,'C');
 //    $pdf->cell(40,10,"Average Marks",1,1,'C');
@@ -106,11 +97,12 @@ if($flag==0)
 
         $marks_avg = ($marks_1 + $marks_2)/2;
 
-        $pdf->cell($width/6,10,$row4['Name'],1,0,'C');
-        $pdf->cell($width/6,10,$row4['email'],1,0,'C');
-        $pdf->cell($width/6,10,"Poster",1,0,'C');
-        $pdf->cell($width/6,10,$row5['Name'],1,0,'C');
-        $pdf->cell($width/6,10,$row6['Name'],1,1,'C');
+        $pdf->cell($width/5,10,$row4['Name'],1,0,'C');
+        $pdf->cell($width/5,10,$row4['email'],1,0,'C');
+        $pdf->cell($width/5,10,"Poster",1,0,'C');
+        $pdf->cell($width/5,10,$row1['AbstractTitle'],1,1,'C');
+//        $pdf->cell($width/6,10,$row5['Name'],1,0,'C');
+//        $pdf->cell($width/6,10,$row6['Name'],1,1,'C');
 //        $pdf->cell(20,10,$row1['Marks1'],1,0,'C');
 //        $pdf->cell(20,10,$row1['Marks2'],1,0,'C');
 //        $pdf->cell(40,10,$marks_avg,1,1,'C');
@@ -135,11 +127,12 @@ if($flag==0)
 
         $marks_avg = ($marks_1 + $marks_2)/2;
 
-        $pdf->cell($width/6,10,$row4['Name'],1,0,'C');
-        $pdf->cell($width/6,10,$row4['email'],1,0,'C');
-        $pdf->cell($width/6,10,"Oral",1,0,'C');
-        $pdf->cell($width/6,10,$row5['Name'],1,0,'C');
-        $pdf->cell($width/6,10,$row6['Name'],1,1,'C');
+        $pdf->cell($width/5,10,$row4['Name'],1,0,'C');
+        $pdf->cell($width/5,10,$row4['email'],1,0,'C');
+        $pdf->cell($width/5,10,"Oral",1,0,'C');
+        $pdf->cell($width/5,10,$row2['AbstractTitle'],1,1,'C');
+//        $pdf->cell($width/6,10,$row5['Name'],1,0,'C');
+//        $pdf->cell($width/6,10,$row6['Name'],1,1,'C');
 //        $pdf->cell(20,10,$row2['Marks1'],1,0,'C');
 //        $pdf->cell(20,10,$row2['Marks2'],1,0,'C');
 //        $pdf->cell(40,10,$marks_avg,1,0,'C');

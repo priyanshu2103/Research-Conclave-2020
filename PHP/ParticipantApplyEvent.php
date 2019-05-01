@@ -214,10 +214,6 @@ if(isset($_POST['submit_btn']))
                                         VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
                 }
             }
-
-
-
-
         }
 
     }
