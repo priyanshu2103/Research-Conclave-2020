@@ -9,8 +9,43 @@ session_start();
 <?php
 if(!isset($_SESSION['logged_in']))
     header("Location: login.php");
-?>
 
+if(isset($_GET['posterfile']))
+{
+//    echo $_GET['posterfile'];
+    $posterid = $_GET['posterfile'];
+    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+    $file_poster_query = mysqli_query($conn,"SELECT File,FileName,FileSize,FileType FROM PosterPresentation WHERE Posterid='$posterid'");
+    list($content,$name,$size,$type) = mysqli_fetch_array($file_poster_query);
+    header("Content-length: $size");
+    header("Content-type: $type");
+    header("Content-Disposition: attachment; filename=$name");
+    ob_clean();
+    flush();
+    echo $content;
+}
+else if(isset($_GET['oralfile']))
+{
+//    echo "oral";
+    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+    $oralid = $_GET['oralfile'];
+    $file_oral_query = mysqli_query($conn,"SELECT File,FileName,FileSize,Filetype FROM OralPresentation WHERE Oralid='$oralid'");
+    list($content,$name,$size,$type) = mysqli_fetch_array($file_oral_query);
+    header("Content-length: $size");
+    header("Content-type: $type");
+    header("Content-Disposition: attachment; filename=$name");
+    ob_clean();
+    flush();
+    echo $content;
+    exit;
+}
+else if(!isset($_GET['oralfile']) && !isset($_GET['posterfile']))
+{
+
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,82 +73,14 @@ if(!isset($_SESSION['logged_in']))
 
 <body id="page-top">
 
-<?php
 
-if(isset($_POST['posterfile']))
-{
-    $posterid = $_POST['posterfile'];
-    $path = $posterid;
-    $d=dir($path);
-    echo $posterid;
-    while (false !== ($entry = $d->read()))
-    {
-        $filename = $entry;
-    }
-    echo $filename;
-    echo $filename;
-    chmod($posterid.'/'.$filename,777);
-    if(is_readable($filename))
-    {
-        echo "readable";
-    }
-    else
-    {
-        echo "not readable";
-    }
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($filename));
-    readfile($filename);
-
-}
-if(isset($_POST['oralfile']))
-{
-//    echo "dff";
-    $oralid = $_POST['oralfile'];
-    echo $oralid;
-    $path = $oralid;
-    $d=dir($path);
-
-    while (false !== ($entry = $d->read()))
-    {
-        $filename = $entry;
-//        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-//        echo $ext;
-    }
-//    echo $filename;
-    chmod($filename,777);
-    if(is_readable($filename))
-    {
-        echo "readable";
-    }
-    else
-    {
-        echo "not readable";
-    }
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.$filename.'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($filename));
-
-    exit;
-}
-
-?>
 
 <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
+            <a class="nav-link" href="#">
                 <span><?php
                     $name = $_SESSION['name'];
                     echo "$name";
@@ -162,7 +129,7 @@ if(isset($_POST['oralfile']))
                     echo '</h5>';
                             echo '<p class="card-text">';
                             echo $row['AbstractDescription'];
-                            echo '</p><form method="post"><button type="submit" name="posterfile" value=';echo $row['Posterid'];echo ' class="btn btn-primary">File</button></form>
+                            echo '</p><form method="get"><button type="submit" name="posterfile" value=';echo $row['Posterid'];echo ' class="btn btn-primary">File</button></form>
                         </div>
                     </div>';
             }
@@ -178,7 +145,7 @@ if(isset($_POST['oralfile']))
                 echo '</h5>';
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
-                echo '</p><form method="post"><button name="oralfile" type="submit" value=';echo $row['Oralid'];echo ' class="btn btn-primary">File</button></form>
+                echo '</p><form method="get"><button name="oralfile" type="submit" value=';echo $row['Oralid'];echo ' class="btn btn-primary">File</button></form>
                         </div>
                     </div>';
             }

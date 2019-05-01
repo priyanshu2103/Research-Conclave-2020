@@ -49,7 +49,7 @@ if(isset($_POST['postermarksassign']))
         {
             $marks = $_POST['marks'];
             $posterid = substr($posterid_and_marks,0,strlen($posterid_and_marks)-1);
-            echo $posterid;
+//            echo $posterid;
             $poster_1_marks_update = mysqli_query($conn,"UPDATE PosterPresentation SET Marks1=$marks WHERE Posterid='$posterid'");
             echo "Marks updated successfully";
         }
@@ -61,9 +61,9 @@ if(isset($_POST['postermarksassign']))
         {
 
             $marks = $_POST['marks'];
-            echo $marks;
+//            echo $marks;
             $posterid = substr($posterid_and_marks,0,strlen($posterid_and_marks)-1);
-            echo $posterid;
+//            echo $posterid;
             $poster_2_marks_update = mysqli_query($conn,"UPDATE PosterPresentation SET Marks2=$marks WHERE Posterid='$posterid'");
             echo "Marks updated successfully";
         }
@@ -78,7 +78,7 @@ if(isset($_POST['oralmarksassign']))
     {
         $marks = $_POST['marks'];
         $oralid = substr($oralid_and_marks,0,strlen($oralid_and_marks)-1);
-        echo $oralid;
+//        echo $oralid;
         $oral_1_marks_update = mysqli_query($conn,"UPDATE OralPresentation SET Marks1=$marks WHERE Oralid='$oralid'");
         echo "Marks updated successfully";
     }
@@ -86,10 +86,40 @@ if(isset($_POST['oralmarksassign']))
     {
         $marks = $_POST['marks'];
         $oralid = substr($oralid_and_marks,0,strlen($oralid_and_marks)-1);
-        echo $oralid;
+//        echo $oralid;
         $oral_2_marks_update = mysqli_query($conn,"UPDATE OralPresentation SET Marks2=$marks WHERE Oralid='$oralid'");
         echo "Marks updated successfully";
     }
+}
+if(isset($_GET['posterfile']))
+{
+//    echo $_GET['posterfile'];
+    $posterid = $_GET['posterfile'];
+    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+    $file_poster_query = mysqli_query($conn,"SELECT File,FileName,FileSize,FileType FROM PosterPresentation WHERE Posterid='$posterid'");
+    list($content,$name,$size,$type) = mysqli_fetch_array($file_poster_query);
+    header("Content-length: $size");
+    header("Content-type: $type");
+    header("Content-Disposition: attachment; filename=$name");
+    ob_clean();
+    flush();
+    echo $content;
+    exit;
+}
+else if(isset($_GET['oralfile']))
+{
+//    echo "oral";
+    $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
+    $oralid = $_GET['oralfile'];
+    $file_oral_query = mysqli_query($conn,"SELECT File,FileName,FileSize,Filetype FROM OralPresentation WHERE Oralid='$oralid'");
+    list($content,$name,$size,$type) = mysqli_fetch_array($file_oral_query);
+    header("Content-length: $size");
+    header("Content-type: $type");
+    header("Content-Disposition: attachment; filename=$name");
+    ob_clean();
+    flush();
+    echo $content;
+    exit;
 }
 ?>
 
@@ -157,12 +187,10 @@ if(isset($_POST['oralmarksassign']))
                     echo '</h5>';
                     echo '<div class="card-body"><p class="card-text">';
                     echo $row['AbstractDescription'];
+                    echo '<form method="get"><button class="btn btn-info" type="submit" name="posterfile" value=';echo $posteridarray[$posterindex];echo '>File</button></form>';
                     echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
                         <button class="btn btn-primary" type="submit" name="postermarksassign" value="';echo $posteridarray[$posterindex].$flag; echo '">Assign Marks</button>
                         </form></div>';
-//                echo '</p><a href="#" class="btn btn-primary">File</a>
-//                        </div>
-//                    </div>';
                     $posterindex++;
                     $flag=0;
                 }
@@ -176,7 +204,7 @@ if(isset($_POST['oralmarksassign']))
                     echo '</h5>';
                     echo '<div class="card-body"><p class="card-text">';
                     echo $row['AbstractDescription'];
-
+                    echo '<form method="get"><button class="btn btn-info" type="submit" name="posterfile" value=';echo $posteridarray[$posterindex];echo '>File</button></form>';
                     echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
                         <button class="btn btn-primary" type="submit" name="postermarksassign" value="';echo $posteridarray[$posterindex].$flag; echo '">Assign Marks</button>
                         </form></div>';
@@ -203,12 +231,10 @@ if(isset($_POST['oralmarksassign']))
                     echo '</h5>';
                     echo '<div class="card-body"><p class="card-text">';
                     echo $row['AbstractDescription'];
+                    echo '<form method="get"><button class="btn btn-info" type="submit" name="oralfile" value=';echo $row['Oralid'];echo '>File</button></form>';
                     echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks" max="10" min="0" minlength="1">
                         <button class="btn btn-primary" type="submit" name="oralmarksassign" value="';echo $oralidarray[$oralindex].$flag; echo '">Assign Marks</button>
                         </form></div>';
-//                echo '</p><a href="#" class="btn btn-primary">File</a>
-//                        </div>
-//                    </div>';
                     $oralindex++; $flag=0;
                 }
                 if($flag==2 && $row['Marks2']==NULL)
@@ -220,31 +246,13 @@ if(isset($_POST['oralmarksassign']))
                     echo '</h5>';
                     echo '<div class="card-body"><p class="card-text">';
                     echo $row['AbstractDescription'];
+                    echo '<form method="get"><button class="btn btn-info" type="submit" name="oralfile" value=';echo $row['Oralid'];echo '>File</button></form>';
                     echo '</div><form method="post"><input type="number" name="marks" placeholder="Marks"  max="10" min="0" minlength="1">
                         <button class="btn btn-primary" type="submit" name="oralmarksassign" value="';echo $oralidarray[$oralindex].$flag; echo '">Assign Marks</button>
                         </form></div>';
-//                echo '</p><a href="#" class="btn btn-primary">File</a>
-//                        </div>
-//                    </div>';
                     $oralindex++; $flag=0;
                 }
-//                echo '<div class="card mb-5">
-//                    <h5 class="card-header">';
-//                echo "Oral Presentation";
-//                echo '</h5><div class="card-body"><h5 class="card-title">';
-//                echo $row['AbstractTitle'];
-//                echo '</h5>';
-//                echo '<p class="card-text">';
-//                echo $row['AbstractDescription'];
-//                echo '</div><h5 class="card-header"> Reviewers:<br>';
-//                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
-//                echo '<br>2.  ';
-//                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
-//                echo '</h5>';
-//                echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
-//                        <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>
-//                        <button class="btn btn-primary" name="oralapprove" value="';echo $oralidarray[$oralindex];echo '">Approve</button></form></div>';
-//                $oralindex++;
+
             }
 
 
@@ -284,24 +292,7 @@ if(isset($_POST['oralmarksassign']))
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 
-<!-- Core plugin JavaScript-->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-
-<!-- Page level plugin JavaScript-->
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!--<script src="vendor/datatables/jquery.dataTables.js"></script>-->
-<!--<script src="vendor/datatables/dataTables.bootstrap4.js"></script>-->
-
-<!-- Custom scripts for all pages-->
-<!--<script src="js/sb-admin.min.js"></script>-->
-
-<!-- Demo scripts for this page-->
-<!--<script src="js/demo/datatables-demo.js"></script>-->
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
 
 </body>
 
