@@ -1,5 +1,20 @@
 <?php
-    $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
+error_reporting(E_ALL ^ E_NOTICE );
+error_reporting(E_ERROR | E_PARSE);
+//session based login system
+session_start();
+?>
+
+
+
+<?php
+
+
+
+if (!isset($_SESSION['logged_in']))
+    header("Location: login.php");
+
+$conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
 
     $query1 = mysqli_query($conn,"SELECT * FROM PosterPresentation");
     $query2 = mysqli_query($conn,"SELECT * FROM OralPresentation");

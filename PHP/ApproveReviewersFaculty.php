@@ -49,6 +49,7 @@ if (isset($_POST['posterapprove']))
 
 
 }
+
 if (isset($_POST['posterdisapprove']))
 {
     echo $_POST['posterdisapprove'];
@@ -58,9 +59,8 @@ if (isset($_POST['posterdisapprove']))
     $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
     $posterdisapprovequery = mysqli_query($conn,"UPDATE PosterPresentation SET Approved=0, Remark='$comment' WHERE Posterid='$posterid'");
     echo "reviewer disapproved for ".$posterid;
-
-
 }
+
 if (isset($_POST['oralapprove']))
 {
     echo $_POST['oralapprove'];
@@ -73,6 +73,7 @@ if (isset($_POST['oralapprove']))
 
 
 }
+
 if (isset($_POST['oraldisapprove']))
 {
     echo $_POST['oraldisapprove'];
@@ -129,6 +130,11 @@ if (isset($_POST['oraldisapprove']))
             <a class="nav-link" href="./EventEditFaculty.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Edit event date</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="generateReportFacultyConv.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Show Report</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="./logout.php">

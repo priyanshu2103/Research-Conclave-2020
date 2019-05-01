@@ -66,7 +66,7 @@
                 <li><a href="./ViewEventHome.php">Events</a></li>
                 <li><a href="./login.php">Login</a></li>
                 <li><a href="./register.php">Register</a></li>
-                <li><a href="./generateReport.php">See Report</a></li>
+                <li><a href="generateReportFacultyConv.php">See Report</a></li>
                 <li><a href="#here">About Us</a></li>
                 <li><a href="http://www.iitg.ac.in/researchconclave/">Official Website</a></li>
             </ul>
