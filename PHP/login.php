@@ -66,7 +66,7 @@ if(isset($_POST['login_btn']))
                 {
                     if($dbusertype=="Participant")
                     {
-                        header("location:./ParticipantPage.php");
+                        header("location:./MySubmissionsParticipant.php");
                         $_SESSION['logged_in']=true;
                         $_SESSION['username']=$user;
                         $_SESSION['name']=$dbname;

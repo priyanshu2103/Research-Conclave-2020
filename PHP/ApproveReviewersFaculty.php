@@ -39,7 +39,7 @@ if(!isset($_SESSION['logged_in']))
 
 if (isset($_POST['posterapprove']))
 {
-    echo $_POST['posterapprove'];
+//    echo $_POST['posterapprove'];
     $index =number_format($_POST['posterapprove']);
     $comment = $_POST['comment'];
     $posterid = $_POST['posterapprove'];
@@ -52,7 +52,7 @@ if (isset($_POST['posterapprove']))
 
 if (isset($_POST['posterdisapprove']))
 {
-    echo $_POST['posterdisapprove'];
+//    echo $_POST['posterdisapprove'];
     $index =number_format($_POST['posterdisapprove']);
     $comment = $_POST['comment'];
     $posterid = $_POST['posterdisapprove'];
@@ -63,7 +63,7 @@ if (isset($_POST['posterdisapprove']))
 
 if (isset($_POST['oralapprove']))
 {
-    echo $_POST['oralapprove'];
+//    echo $_POST['oralapprove'];
     $index =number_format($_POST['oralapprove']);
     $comment = $_POST['comment'];
     $oralid = $_POST['oralapprove'];
@@ -76,7 +76,7 @@ if (isset($_POST['oralapprove']))
 
 if (isset($_POST['oraldisapprove']))
 {
-    echo $_POST['oraldisapprove'];
+//    echo $_POST['oraldisapprove'];
     $index =number_format($_POST['oraldisapprove']);
     $comment = $_POST['comment'];
     $oralid = $_POST['oraldisapprove'];
@@ -150,7 +150,7 @@ if (isset($_POST['oraldisapprove']))
             <?php
             $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
 //            TODO apply and reviewer1 and reviewer2 is not null condition
-            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE (Approved=0 )");
+            $posterquery = mysqli_query($conn,"SELECT * FROM PosterPresentation WHERE (Approved=0 AND Reviewer1 IS NOT NULL AND Reviewer2 IS NOT NULL)");
 
             $posteridarray = array();
             $posterindex=0;
@@ -187,7 +187,7 @@ if (isset($_POST['oraldisapprove']))
 //                    </div>';
                 $posterindex++;
             }
-            $oralquery = mysqli_query($conn,"SELECT * FROM OralPresentation WHERE Approved='0'");
+            $oralquery = mysqli_query($conn,"SELECT * FROM OralPresentation WHERE Approved=0 AND Reviewer1 IS NOT NULL AND Reviewer2 IS NOT NULL");
             $oralidarray=array();
             $oralindex=0;
             while($row=mysqli_fetch_assoc($oralquery))
@@ -237,24 +237,6 @@ if (isset($_POST['oraldisapprove']))
 </a>
 
 
-<!-- Bootstrap core JavaScript-->
-<!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!---->
-<!-- Core plugin JavaScript-->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-<!---->
-<!-- Page level plugin JavaScript-->
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!--<script src="vendor/datatables/jquery.dataTables.js"></script>-->
-<!--<script src="vendor/datatables/dataTables.bootstrap4.js"></script>-->
-<!---->
-<!-- Custom scripts for all pages-->
-<!--<script src="js/sb-admin.min.js"></script>-->
-<!---->
-<!-- Demo scripts for this page-->
-<!--<script src="js/demo/datatables-demo.js"></script>-->
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
 
 </body>
 

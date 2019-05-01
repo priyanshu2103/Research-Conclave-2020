@@ -72,10 +72,6 @@ if(isset($_POST['submit_btn']))
         $title = $_POST['title'];
         $description = $_POST['description'];
         $type = $_POST['option'];
-//        $filename = $_FILES['file']['name'];
-//        $file = file_get_contents($_FILES['file']['tmp_name']);
-
-//        echo "$file";
         if($type=="Poster Presentation")
         {
 
@@ -83,17 +79,13 @@ if(isset($_POST['submit_btn']))
             $numrows = mysqli_num_rows($selectquery);
             $numrows+=1;
             $posterid = "Poster".(string)$numrows;
-            // check if user already exists
             $userexistsquery = mysqli_query($conn,"SELECT * FROM `PosterPresentation` WHERE Username='$user';");
             $numrows_user = mysqli_num_rows($userexistsquery);
-//            echo "$numrows_user";
             $datequery = mysqli_query($conn,"SELECT * FROM Event WHERE Type='Poster Presentation'");
             $todaydate = date("Y-m-d");
-//            echo "Todays date: $todaydate";
             $row = mysqli_fetch_assoc($datequery);
             $eventstartdate = $row['StartDate'];
             $eventenddate = $row['EndDate'];
-//            echo "$eventenddate";
             if($numrows_user>0)
             {
                 echo '<script language="javascript">window.alert("you have already submitted")</script>';
@@ -111,36 +103,35 @@ if(isset($_POST['submit_btn']))
             {
                 // file upload from here
 
-//                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png","pdf"=>"/");
                 $filename = $_FILES['file']['name'];
                 $filetype = $_FILES['file']['type'];
                 $filesize = $_FILES['file']['size'];
                 $file = $_FILES['file']['tmp_name'];
+                $fileType = (get_magic_quotes_gpc() == 0 ?
+                    $_FILES['file']['type'] :
+                    stripslashes($_FILES['file']));
+                $fp = fopen($file, 'r');
+                $content = fread($fp, filesize($file));
+                $content = addslashes($content);
+                fclose($fp);
+                if (!get_magic_quotes_gpc()) {
+                    $filename = addslashes($filename);
+                }
 
-                // verify extension
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                $max_size = 50*1024*1024;       // max size in 50MB
-                if($ext!="pdf" && $ext!="jpg" && $ext!="jpeg" && $ext!="png" && $ext!="txt" && $ext!="docx"){die("Error: Please select a valid file format.");}
-                if($filesize > $max_size) {die("Error: File size is larger than the allowed limit.");}
-                if(is_dir($posterid))
-                {
-                    echo "Directory exists";
-                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
-                    echo "File added";
+//                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
                     $approved = 0;
-                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
-                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
-                }
-                else
-                {
-                    echo "Directory does not exist";
-                    mkdir($posterid);
-                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
-                    echo "File uploaded";
-                    $approved = 0;
-                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
-                                        VALUES ('$posterid','$user','$approved','$file','$filename','$title','$description','$email')");
-                }
+                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,FileSize,FileType,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$posterid','$user','$approved','$content','$filename','$filesize','$filetype','$title','$description','$email')");
+
+
+                    ////                    echo "Directory does not exist";
+//                    mkdir($posterid);
+//                    move_uploaded_file($_FILES['file']['tmp_name'],$posterid."/".$filename);
+////                    echo "File uploaded";
+//                    $approved = 0;
+//                    $insertquery = mysqli_query($conn,"INSERT INTO PosterPresentation (Posterid,Username,Approved,File,FileName,FileSize,FileType,AbstractTitle,AbstractDescription,Email)
+//                                        VALUES ('$posterid','$user','$approved','$content','$filename','$filesize','$filetype','$title','$description','$email')");
+//                }
 
 
 
@@ -156,17 +147,13 @@ if(isset($_POST['submit_btn']))
             $numrows = mysqli_num_rows($selectquery);
             $numrows+=1;
             $oralid = "Oral".(string)$numrows;
-//            check if user has already submitted oral presentation
             $userexistsquery = mysqli_query($conn,"SELECT * FROM `OralPresentation` WHERE Username='$user'");
             $numrows_user = mysqli_num_rows($userexistsquery);
-//            echo "$numrows_user";
             $datequery = mysqli_query($conn,"SELECT * FROM Event WHERE Type='Oral Presentation'");
             $todaydate = date("Y-m-d");
-//            echo "Todays date: $todaydate";
             $row = mysqli_fetch_assoc($datequery);
             $eventstartdate = $row['StartDate'];
             $eventenddate = $row['EndDate'];
-//            echo "$eventenddate";
             if($numrows_user>0)
             {
                 echo '<script language="javascript">window.alert("you have already submitted")</script>';
@@ -183,36 +170,35 @@ if(isset($_POST['submit_btn']))
             {
                 // file upload from here
 
-//                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png","pdf"=>"/");
                 $filename = $_FILES['file']['name'];
                 $filetype = $_FILES['file']['type'];
                 $filesize = $_FILES['file']['size'];
                 $file = $_FILES['file']['tmp_name'];
+                $fileType = (get_magic_quotes_gpc() == 0 ?
+                    $_FILES['file']['type'] :
+                    stripslashes($_FILES['file']));
+                $fp = fopen($file, 'r');
+                $content = fread($fp, filesize($file));
+                $content = addslashes($content);
+                fclose($fp);
+                if (!get_magic_quotes_gpc()) {
+                    $filename = addslashes($filename);
+                }
 
-                // verify extension
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                $max_size = 50*1024*1024;       // max size in 50MB
-                if($ext!="pdf" && $ext!="jpg" && $ext!="jpeg" && $ext!="png" && $ext!="txt" && $ext!="docx"){die("Error: Please select a valid file format.");}
-                if($filesize > $max_size) {die("Error: File size is larger than the allowed limit.");}
-                if(is_dir($oralid))
-                {
-                    echo "Directory exists";
-                    move_uploaded_file($_FILES['file']['tmp_name'],$oralid."/".$filename);
-                    echo "File added";
                     $approved = 0;
-                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
-                                        VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
-                }
-                else
-                {
-                    echo "Directory does not exist";
-                    mkdir($oralid);
-                    move_uploaded_file($_FILES['file']['tmp_name'],$oralid."/".$filename);
-                    echo "File uploaded";
-                    $approved = 0;
-                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,AbstractTitle,AbstractDescription,Email)
-                                        VALUES ('$oralid','$user','$approved','$file','$filename','$title','$description','$email')");
-                }
+                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,FileSize,Filetype,AbstractTitle,AbstractDescription,Email)
+                                        VALUES ('$oralid','$user','$approved','$content','$filename','$filesize','$filetype','$title','$description','$email')");
+//                }
+//                else
+//                {
+//                    echo "Directory does not exist";
+//                    mkdir($oralid);
+//                    move_uploaded_file($_FILES['file']['tmp_name'],$oralid."/".$filename);
+//                    echo "File uploaded";
+//                    $approved = 0;
+//                    $insertquery = mysqli_query($conn,"INSERT INTO OralPresentation (Oralid,Username,Approved,File,FileName,FileSize,Filetype,AbstractTitle,AbstractDescription,Email)
+//                                        VALUES ('$oralid','$user','$approved','$content','$filename','$filesize','$filetype','$title','$description','$email')");
+//                }
             }
         }
 
@@ -227,7 +213,7 @@ if(isset($_POST['submit_btn']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./ParticipantPage.php">
+            <a class="nav-link" href="#">
                 <span><?php
                     $name = $_SESSION['name'];
                     echo "$name";

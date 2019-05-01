@@ -52,8 +52,8 @@ if(isset($_POST['PosterReviewer']))
     }
     else
     {
-        echo $r1;
-        echo $r2;
+//        echo $r1;
+//        echo $r2;
 
         $posterid = $_POST['PosterReviewer'];
         echo $posterid;
@@ -76,8 +76,8 @@ else if(isset($_POST['OralReviewer']))
     }
     else
     {
-        echo $r1;
-        echo $r2;
+//        echo $r1;
+//        echo $r2;
 
         $oralid = $_POST['OralReviewer'];
         echo $oralid;
@@ -174,8 +174,12 @@ else if(isset($_POST['OralReviewer']))
                     while ($row = mysqli_fetch_array($posterquery)) {
                         if( $todaydate>$posterevent['EndDate'])
                         {
+
                             echo "<tr>";
-                            echo "<td>".$row['Posterid']."</td>";
+                            echo "<td>" ;
+                            echo $row['Posterid'] ;
+                            if ($row['Reviewer1']!=NULL) {echo '<br>';echo "Reviewer *assigned";}
+                            echo "</td>";
                             echo "<td>".$row['Username']."</td>";
                             echo "<td>".$row['AbstractTitle']."</td>";
                             echo "<td>".$row['Remark']."</td>";
@@ -229,8 +233,13 @@ else if(isset($_POST['OralReviewer']))
                     while ($row = mysqli_fetch_array($oralquery)) {
                     if($todaydate>$posterevent['EndDate'])
                     {
+
                         echo "<tr>";
-                        echo "<td>" . $row['Oralid'] . "</td>";
+                        echo "<td>" ;
+                        echo $row['Oralid'] ;
+
+                        if ($row['Reviewer1']!=NULL) {echo '<br>';echo "Reviewer *assigned";}
+                        echo "</td>";
                         echo "<td>" . $row['Username'] . "</td>";
                         echo "<td>" . $row['AbstractTitle'] . "</td>";
                         echo "<td>" . $row['Remark'] . "</td>";
