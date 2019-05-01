@@ -56,7 +56,7 @@ if(isset($_POST['PosterReviewer']))
 //        echo $r2;
 
         $posterid = $_POST['PosterReviewer'];
-        echo $posterid;
+//        echo $posterid;
         $setReviewerquery = mysqli_query($conn,"UPDATE PosterPresentation SET Reviewer1='$r1', Reviewer2='$r2' WHERE Posterid='$posterid'");
 
     }
@@ -80,7 +80,7 @@ else if(isset($_POST['OralReviewer']))
 //        echo $r2;
 
         $oralid = $_POST['OralReviewer'];
-        echo $oralid;
+//        echo $oralid;
         $setReviewerquery = mysqli_query($conn,"UPDATE OralPresentation SET Reviewer1='$r1', Reviewer2='$r2' WHERE Oralid='$oralid'");
 
     }
@@ -109,11 +109,11 @@ else if(isset($_POST['OralReviewer']))
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Assign reviewers</span></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Reports</span></a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Reports</span></a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a class="nav-link" href="./ShowNoticeStudent.php">
                 <i class="fas fa-fw fa-table"></i>

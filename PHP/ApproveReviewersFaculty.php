@@ -45,7 +45,9 @@ if (isset($_POST['posterapprove']))
     $posterid = $_POST['posterapprove'];
     $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
     $posterapprovequery = mysqli_query($conn,"UPDATE PosterPresentation SET Approved=1, Remark='$comment' WHERE Posterid='$posterid'");
-    echo "reviewer approved for ".$posterid;
+    $message = "reviewer approved for ".$posterid;
+    echo "<script type='text/javascript'>window.alert('$message');</script>";
+
 
 
 }
@@ -58,7 +60,9 @@ if (isset($_POST['posterdisapprove']))
     $posterid = $_POST['posterdisapprove'];
     $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
     $posterdisapprovequery = mysqli_query($conn,"UPDATE PosterPresentation SET Approved=0, Remark='$comment' WHERE Posterid='$posterid'");
-    echo "reviewer disapproved for ".$posterid;
+    $message =  "reviewer disapproved for ".$posterid;
+    echo "<script type='text/javascript'>window.alert('$message');</script>";
+
 }
 
 if (isset($_POST['oralapprove']))
@@ -69,7 +73,8 @@ if (isset($_POST['oralapprove']))
     $oralid = $_POST['oralapprove'];
     $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
     $oralapprovequery = mysqli_query($conn,"UPDATE OralPresentation SET Approved=1, Remark='$comment' WHERE Oralid='$oralid'");
-    echo "reviewer approved for ".$oralid;
+    $message =  "reviewer approved for ".$oralid;
+    echo "<script type='text/javascript'>alert('$message');</script>";
 
 
 }
@@ -82,7 +87,8 @@ if (isset($_POST['oraldisapprove']))
     $oralid = $_POST['oraldisapprove'];
     $conn = new mysqli("127.0.0.1","root","","Research-Conclave");
     $oraldisapprovequery = mysqli_query($conn,"UPDATE OralPresentation SET Approved=0, Remark='$comment' WHERE Oralid='$oralid'");
-    echo "reviewer disapproved for ".$oralid;
+    $message =  "reviewer disapproved for ".$oralid;
+    echo "<script type='text/javascript'>alert('$message');</script>";
 
 
 }
@@ -111,11 +117,11 @@ if (isset($_POST['oraldisapprove']))
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Approve reviewers</span></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Reports</span></a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Reports</span></a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a class="nav-link" href="./ShowNoticeFaculty.php">
                 <i class="fas fa-fw fa-table"></i>
@@ -175,9 +181,9 @@ if (isset($_POST['oraldisapprove']))
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
                 echo '</div><h5 class="card-header"> Reviewers:<br>';
-                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
+                echo "1.    ".$row_reviewer1['Name'].",".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." is reviewing ".$row_reviewer1['Type'];
                 echo '<br>2.  ';
-                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
+                echo $row_reviewer2['Name'].",".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." is reviewing ".$row_reviewer2['Type'];
                 echo '</h5>';
                 echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
                         <button class="btn btn-danger" type="submit" name="posterdisapprove" value="';echo $posteridarray[$posterindex]; echo '">Disapprove</button>
@@ -209,9 +215,9 @@ if (isset($_POST['oraldisapprove']))
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
                 echo '</div><h5 class="card-header"> Reviewers:<br>';
-                echo "1.    ".$row_reviewer1['Name']." is from ".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." of type ".$row_reviewer1['Type'];
+                echo "1.    ".$row_reviewer1['Name'].",".$row_reviewer1['Department'].",".$row_reviewer1['Institute']." is reviewing ".$row_reviewer1['Type'];
                 echo '<br>2.  ';
-                echo $row_reviewer2['Name']." is from ".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." of type ".$row_reviewer2['Type'];
+                echo $row_reviewer2['Name'].",".$row_reviewer2['Department'].",".$row_reviewer2['Institute']." is reviewing ".$row_reviewer2['Type'];
                 echo '</h5>';
                 echo '<form method="post"><textarea type="text" name="comment" placeholder="comment"></textarea>
                         <button class="btn btn-danger" type="submit" name="oraldisapprove" value="';echo $oralidarray[$oralindex];echo '">Disapprove</button>

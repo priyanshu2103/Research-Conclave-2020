@@ -75,7 +75,7 @@ if(isset($_POST['btn-change-date-poster']))
             echo '<script language="javascript">';
             echo 'alert("Event Date Successfully changed")';
             echo '</script>';
-//            header("location:./ApproveReviewersFaculty.php");
+            header("location:./EventEditFaculty.php");
         }
     }
 }
@@ -98,7 +98,7 @@ if(isset($_POST['btn-change-date-oral']))
             echo '<script language="javascript">';
             echo 'alert("Event Date Successfully changed")';
             echo '</script>';
-//            header("location:./ApproveReviewersFaculty.php");
+            header("location:./EventEditFaculty.php");
         }
     }
 }
@@ -131,11 +131,11 @@ if(isset($_POST['btn-change-date-oral']))
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Approve reviewers</span></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Reports</span></a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Reports</span></a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a class="nav-link" href="./ShowNoticeFaculty.php">
                 <i class="fas fa-fw fa-table"></i>

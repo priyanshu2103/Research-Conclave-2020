@@ -57,9 +57,11 @@ if(isset($_POST['btn-add-reviewer']))
     {
         $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
         $query = mysqli_query($conn,"SELECT * FROM Reviewer WHERE Username ='$username' ");
+        $query2 = mysqli_query($conn,"SELECT * FROM Users WHERE username ='$username' ");
         $numrows = mysqli_num_rows($query);
+        $numrows2 = mysqli_query($query2);
 
-        if($numrows==1)
+        if($numrows2==1)
         {
             $flag=1;
             mysqli_close($conn);

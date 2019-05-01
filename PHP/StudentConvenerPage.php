@@ -58,11 +58,11 @@ if(!isset($_SESSION['logged_in']))
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Assign reviewers</span></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Home.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Reports</span></a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link" href="./Home.php">-->
+<!--                <i class="fas fa-fw fa-table"></i>-->
+<!--                <span>Reports</span></a>-->
+<!--        </li>-->
         <li class="nav-item">
             <a class="nav-link" href="./ShowNoticeStudent.php">
                 <i class="fas fa-fw fa-table"></i>

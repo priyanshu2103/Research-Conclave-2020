@@ -57,7 +57,7 @@ if(isset($_POST['notice-add-btn']))
     if($conn->query($sql1)===TRUE) {
         $message = "Notice successfully added";
         echo "<script type='text/javascript'>alert('$message');</script>";
-        header("location:./FacultyConvenerPage.php");
+        header("location:./ApproveReviewersFaculty.php");
 //        <script type="text/javascript">
 //        alert("Notice successfully added");
 //        location="./FacultyConvenerPage.php";

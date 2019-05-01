@@ -54,14 +54,9 @@ if(isset($_POST['notice-add-btn']))
 
     $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
     $sql1 = "INSERT INTO Notice (Noticeid,Title,Description,Date,SubmittedBy,Type) VALUES (DEFAULT ,'$title','$description','$date','$submitted_by','$type')";
-    if($conn->query($sql1)===TRUE) {
-        $message = "Notice successfully added";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        header("location:./FacultyConvenerPage.php");
-//        <script type="text/javascript">
-//        alert("Notice successfully added");
-//        location="./FacultyConvenerPage.php";
-//        </script>
+    if($conn->query($sql1)===TRUE)
+    {
+        header("location:./AssignReviewers.php");
     }
     mysqli_close($conn);
 }
@@ -79,27 +74,6 @@ if(isset($_POST['notice-add-btn']))
                 <span>Back</span>
             </a>
         </li>
-        <!--        <li class="nav-item dropdown">-->
-        <!--            <a class="nav-link " href="./ParticipantApplyEvent.php" >-->
-        <!--                <i class="fas fa-fw fa-folder"></i>-->
-        <!--                <span>Add notice</span>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="./MySubmissionsParticipant.php">-->
-        <!--                <i class="fas fa-fw fa-chart-area"></i>-->
-        <!--                <span>Approve reviewers</span></a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="./Home.php">-->
-        <!--                <i class="fas fa-fw fa-table"></i>-->
-        <!--                <span>Reports</span></a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="./Home.php">-->
-        <!--                <i class="fas fa-fw fa-table"></i>-->
-        <!--                <span>Logout</span></a>-->
-        <!--        </li>-->
     </ul>
 
     <div id="content-wrapper">
@@ -108,7 +82,7 @@ if(isset($_POST['notice-add-btn']))
 
             <div class="container-contact100">
                 <div class="wrap-contact100">
-                    <form class="contact100-form validate-form" method="post" action="./NewNotice.php">
+                    <form class="contact100-form validate-form" method="post" action="./NewNoticeStudentConvener.php">
 				<span class="contact100-form-title">
 					Add Notice!
 				</span>

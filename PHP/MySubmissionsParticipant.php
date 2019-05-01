@@ -129,7 +129,7 @@ else if(!isset($_GET['oralfile']) && !isset($_GET['posterfile']))
                     echo '</h5>';
                             echo '<p class="card-text">';
                             echo $row['AbstractDescription'];
-                            echo '</p><form method="get"><button type="submit" name="posterfile" value=';echo $row['Posterid'];echo ' class="btn btn-primary">File</button></form>
+                            echo '</p><form method="get"><button type="submit" name="posterfile" value=';echo $row['Posterid'];echo ' class="btn btn-primary">Download File</button></form>
                         </div>
                     </div>';
             }
@@ -145,7 +145,7 @@ else if(!isset($_GET['oralfile']) && !isset($_GET['posterfile']))
                 echo '</h5>';
                 echo '<p class="card-text">';
                 echo $row['AbstractDescription'];
-                echo '</p><form method="get"><button name="oralfile" type="submit" value=';echo $row['Oralid'];echo ' class="btn btn-primary">File</button></form>
+                echo '</p><form method="get"><button name="oralfile" type="submit" value=';echo $row['Oralid'];echo ' class="btn btn-primary">Download File</button></form>
                         </div>
                     </div>';
             }

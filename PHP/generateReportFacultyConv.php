@@ -146,7 +146,7 @@ $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
             $pdf->cell(40,10,$row6['Name'],1,0,'C');
             $pdf->cell(20,10,$row2['Marks1'],1,0,'C');
             $pdf->cell(20,10,$row2['Marks2'],1,0,'C');
-            $pdf->cell(40,10,$marks_avg,1,0,'C');
+            $pdf->cell(40,10,$marks_avg,1,1,'C');
         }
 
         $pdf->Output();
@@ -154,8 +154,8 @@ $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
 
     if($flag==1)
     {
-?> <div class="jumbotron">
-    Report Generation is on the way as all abstracts are not reviewed yet!
+?> <div>
+        <h1>Report Generation is on the way as all abstracts are not reviewed yet!</h1>
 </div>
 <?php
     }

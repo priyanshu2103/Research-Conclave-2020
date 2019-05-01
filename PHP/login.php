@@ -40,7 +40,6 @@ session_start();
 if(isset($_POST['login_btn']))
 //if ($_POST['login_btn'])
 {
-    // Login mein error message echo ho raha hai, ganda lag raha hai
     $flag=0;
     $user = $_POST['username'];
     $password = $_POST['pass'];
@@ -48,7 +47,7 @@ if(isset($_POST['login_btn']))
     {
         if($password)
         {
-            echo md5($password);
+//            echo md5($password);
             $conn = mysqli_connect("127.0.0.1","root","","Research-Conclave");
             $query = mysqli_query($conn,"SELECT * FROM Users WHERE username ='$user' ");
             $numrows = mysqli_num_rows($query);
@@ -56,7 +55,6 @@ if(isset($_POST['login_btn']))
             {
                 $row = mysqli_fetch_assoc($query);
                 $dbname = $row['Name'];
-                echo "$dbname";
                 $dbemail = $row['email'];
                 $dbuser = $row['username'];
                 $dbpass = $row['password'];

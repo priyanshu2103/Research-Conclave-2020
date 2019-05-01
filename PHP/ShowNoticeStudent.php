@@ -43,7 +43,7 @@ if(!isset($_SESSION['logged_in']))
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="./StudentConvenerPage.php">
+            <a class="nav-link" href="./AssignReviewers.php">
                 <span>Back</span>
             </a>
         </li>
@@ -68,8 +68,9 @@ if(!isset($_SESSION['logged_in']))
                         while ($row = mysqli_fetch_assoc($query)) {
                             echo "<div class=\"col-lg-4\">
                 <div class=\"single-feature mb-4 mb-lg-0\"> <h3>" . $row['Title'] . "</h3>" .
-                                "<h4 style='padding-top: 10px'>" . $row['SubmittedBy'] . "</h4>" .
-                                "<h4>" . $row['Date'] . "</h4>" .
+                                "<h5 style='padding-top: 10px'>" . $row['SubmittedBy'] . "</h5>" .
+                                "<h5>" . $row['Date'] . "</h5>" .
+                                "<h5>" . $row['Type'] . "</h5>" .
                                 "<p class=\"py-3\">" . $row['Description'] . "</p>" .
                                 "
                     </div>

@@ -9,7 +9,13 @@
     <!-- Page Title -->
     <title>Events</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style>
+        .jumbotron img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 </head>
 
 <?php
@@ -35,18 +41,49 @@
 ?>
 
 <body>
-<div class="jumbotron">
+<div class="jumbotron" >
     <h1 style="text-align: center">Poster Presentation</h1>
-    <h4>Start Date: <?php echo $posterStart;?></h4>
-    <h4>End Date: <?php echo $posterEnd?></h4>
+    <h5 style="text-align: center">Start Date: <?php echo $posterStart;?></h5>
+    <h5 style="text-align: center">End Date: <?php echo $posterEnd?></h5>
+    <img src="../images/Events/poster.png" class="img-circle center ">
     <p style="margin-top: 20px"><?php echo $desription_poster; ?></p>
 </div>
 <div class="jumbotron">
     <h1 style="text-align: center">Oral Presentation</h1>
-    <h4>Start Date: <?php echo $oralStart;?></h4>
-    <h4>End Date: <?php echo $oralEnd?></h4>
+    <h5 style="text-align: center">Start Date: <?php echo $oralStart;?></h5>
+    <h5 style="text-align: center">End Date: <?php echo $oralEnd?></h5>
+    <img src="../images/Events/oral.png" class="img-circle center ">
     <p style="margin-top: 20px"><?php echo $desription_oral; ?></p>
 </div>
+
+<!--<div class="card-group">-->
+<!--    <div class="card">-->
+<!--        <img class="card-img-top" src="../images/Events/poster.png" alt="Card image cap">-->
+<!--        <div class="card-body">-->
+<!--            <h4 class="card-title">Poster Presentation</h4>-->
+<!--            <p class="card-text">--><?php //$desription_poster ?><!--</p>-->
+<!--            <h5 class="card-text">Start Date: --><?php //$posterStart ?><!--</h5>-->
+<!--            <h5 class="card-text">End Date: --><?php //$posterEnd ?><!--</h5>-->
+<!--<!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">Card title</h5>-->
+<!--            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>-->
+<!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">Card title</h5>-->
+<!--            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>-->
+<!--            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>
