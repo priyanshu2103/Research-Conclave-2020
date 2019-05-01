@@ -46,14 +46,13 @@ if(!isset($_SESSION['logged_in']))
 
     $start_date_poster = $row1['StartDate'];
     $end_date_poster = $row1['EndDate'];
-    $newStartPoster = $start_date_poster;
-    $newEndPoster = $end_date_poster;
 
     $query2 = mysqli_query($conn,"SELECT * FROM Event WHERE Type ='Oral Presentation' ");
     $row2 = mysqli_fetch_assoc($query2);
 
     $start_date_oral = $row2['StartDate'];
     $end_date_oral = $row2['EndDate'];
+
     ?>
 <?php
 
@@ -64,15 +63,20 @@ if(isset($_POST['btn-change-date-poster']))
     $newStartPoster = $_POST['posterStart'];
     $newEndPoster = $_POST['posterEnd'];
 
-    if($newStartPoster===''||$newEndPoster==='')
+    if($newStartPoster===''&&$newEndPoster==='')
     {
-//        $flag=1;
+        $flag=1;
     }
     else
     {
-
         $sql1 = "UPDATE Event SET StartDate='$newStartPoster', EndDate='$newEndPoster' WHERE Type='Poster Presentation'";
-        $conn->query($sql1);
+        if($conn->query($sql1)===TRUE)
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Event Date Successfully changed")';
+            echo '</script>';
+//            header("location:./ApproveReviewersFaculty.php");
+        }
     }
 }
 
@@ -82,16 +86,20 @@ if(isset($_POST['btn-change-date-oral']))
     $newStartOral = $_POST['oralStart'];
     $newEndOral = $_POST['oralEnd'];
 
-    if($newStartOral===''||$newEndOral==='')
+    if($newStartOral===''&&$newEndOral==='')
     {
-//        $flag=1;
+        $flag=1;
     }
     else
     {
         $sql2 = "UPDATE Event SET StartDate='$newStartOral', EndDate='$newEndOral' WHERE Type='Oral Presentation'";
-        $conn->query($sql2);
-        $start_date_oral = $newStartOral;
-        $end_date_oral = $newEndOral;
+        if($conn->query($sql2)===TRUE)
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Event Date Successfully changed")';
+            echo '</script>';
+//            header("location:./ApproveReviewersFaculty.php");
+        }
     }
 }
 
@@ -154,58 +162,49 @@ if(isset($_POST['btn-change-date-oral']))
 
         <div class="container-fluid">
 
-            <h2>Poster Presentation</h2>
-            <form>
+            <h2>Poster Presentation</h2><br>
+            <h4>Current Start Date: <?php echo $start_date_poster; ?></h4>
+            <h4>Current End Date  : <?php echo $end_date_poster; ?></h4><br>
+            <form method="POST">
 
                 <div class="form-group" style="width: 30%">
-                    <label for="exampleInputPassword1">Start Date</label>
-                    <input type="date" name="posterStart" class="form-control" id="exampleInputPassword1" value="<?php echo $newStartPoster?>">
+                    <label for="exampleInputPassword1">Choose New Start Date</label>
+                    <input type="date" name="posterStart" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="form-group" style="width: 30%">
-                    <label for="exampleInputPassword1">End Date</label>
-                    <input type="date" name = "posterEnd" class="form-control" id="exampleInputPassword1" value="<?php echo $newEndPoster?>">
+                    <label for="exampleInputPassword1">Choose New End Date</label>
+                    <input type="date" name = "posterEnd" class="form-control" id="exampleInputPassword1">
                 </div>
                 <button type="submit" class="btn btn-primary" name="btn-change-date-poster">Change Dates</button>
             </form>
 
             <hr>
 
-            <h2 style="margin-top: 20px">Oral Presentation</h2>
-            <form>
+            <h2 style="margin-top: 20px">Oral Presentation</h2><br>
+            <h4>Current Start Date: <?php echo $start_date_oral; ?></h4>
+            <h4>Current End Date  : <?php echo $end_date_oral; ?></h4><br>
+            <form method="POST">
 
                 <div class="form-group" style="width: 30%">
-                    <label for="exampleInputPassword1">Start Date</label>
-                    <input type="date" name = "oralStart" class="form-control" id="exampleInputPassword1" value="<?php echo $start_date_oral ?>">
+                    <label for="exampleInputPassword1">Choose New Start Date</label>
+                    <input type="date" name = "oralStart" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="form-group" style="width: 30%">
-                    <label for="exampleInputPassword1">End Date</label>
-                    <input type="date" name = "oralEnd"  class="form-control" id="exampleInputPassword1" value="<?php echo $end_date_oral ?>">
+                    <label for="exampleInputPassword1">Choose New End Date</label>
+                    <input type="date" name = "oralEnd"  class="form-control" id="exampleInputPassword1">
                 </div>
                 <button type="submit" class="btn btn-primary" name="btn-change-date-oral">Change Dates</button>
             </form>
 
             <div>
                 <?php
-                if($flag==1)
-                    echo '<span style="color:#FF0000;text-align:center;">*All fields must be filled</span>';
-
-
-                    echo $newStartPoster . "\n";
-                    echo $newEndPoster;
-//                    echo $newStartOral;
-//                    echo $newEndPoster;
-
-
+                if($flag==1){
+                    echo '<script language="javascript">';
+                    echo 'alert("No field must be empty, date was not changed")';
+                    echo '</script>';
+                }
                 ?>
             </div>
-            <div>
-<!--                --><?php
-//                echo $newEndPoster;
-//                ?>
-            </div>
-
-
-
 
         </div>
 
