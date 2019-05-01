@@ -120,6 +120,11 @@ else if(isset($_POST['OralReviewer']))
                 <span>Show Notice</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="./generateStudentConvReport.php">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Show Report</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="./logout.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Logout</span></a>
